@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ─── Gracious Greens Design Tokens ───────────────────────────────────────── */
+
+@theme {
+  /* Brand colours */
+  --color-ivory: #FAF8F3;
+  --color-ivory-dark: #F2EFE8;
+  --color-forest: #1F3A2D;
+  --color-forest-light: #2D5040;
+  --color-sage: #A8BCA1;
+  --color-sage-light: #C8D9C0;
+  --color-terracotta: #C77B58;
+  --color-terracotta-light: #D99A7E;
+  --color-charcoal: #22201C;
+  --color-charcoal-muted: #4A4642;
+  --color-cream: #FFFDF9;
+
+  /* Typography */
+  --font-serif: "Fraunces", "Georgia", serif;
+  --font-sans: var(--font-geist-sans, "Inter", system-ui, sans-serif);
+
+  /* Spacing / Sizing */
+  --radius-pill: 9999px;
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-forest);
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+
+::selection {
+  background-color: var(--color-sage-light);
+  color: var(--color-forest);
+}
+
+/* ─── Focus ───────────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

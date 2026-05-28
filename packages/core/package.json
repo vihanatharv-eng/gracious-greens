@@ -1,0 +1,22 @@
+{
+  "name": "@gg/core",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./services/*": "./src/services/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@gg/db": "workspace:*",
+    "drizzle-orm": "^0.41.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "@gg/config": "workspace:*"
+  }
+}
