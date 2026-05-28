@@ -20,6 +20,7 @@ const fraunces = Fraunces({
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in"),
   title: {
     default: "Gracious Greens — Gift a Little Life",
     template: "%s | Gracious Greens",
