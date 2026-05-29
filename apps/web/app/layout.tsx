@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Geist, Playfair_Display, Caveat } from "next/font/google";
 import "./globals.css";
-
-// ─── Fonts ────────────────────────────────────────────────────────────────────
 
 const geist = Geist({
   subsets: ["latin"],
@@ -10,14 +8,19 @@ const geist = Geist({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-playfair",
   display: "swap",
-  axes: ["SOFT", "WONK"],
+  weight: ["400", "500", "600", "700"],
 });
 
-// ─── Metadata ─────────────────────────────────────────────────────────────────
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in"),
@@ -66,16 +69,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1F3A2D",
+  themeColor: "#042f2e",
   width: "device-width",
   initialScale: 1,
 };
 
-// ─── Root Layout ──────────────────────────────────────────────────────────────
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${geist.variable} ${playfair.variable} ${caveat.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

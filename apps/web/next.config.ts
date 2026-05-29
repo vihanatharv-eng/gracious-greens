@@ -5,7 +5,12 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@gg/ui", "@gg/core", "@gg/db", "@gg/ai"],
 
   images: {
+    // Allow fonts.gstatic.com for Three.js Text component
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fonts.gstatic.com",
+      },
       {
         protocol: "https",
         hostname: "**.r2.cloudflarestorage.com",

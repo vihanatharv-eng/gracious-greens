@@ -5,10 +5,9 @@ import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/cart-context";
 
 const NAV_LINKS = [
-  { href: "/shop", label: "Shop" },
+  { href: "/shop", label: "Collections" },
+  { href: "/about", label: "About" },
   { href: "/gifts/personalise", label: "Personalise" },
-  { href: "/corporate", label: "Corporate" },
-  { href: "/about", label: "Our Story" },
 ];
 
 export function Navbar() {
@@ -17,124 +16,137 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      const close = () => setMobileOpen(false);
+      window.addEventListener("scroll", close, { once: true, passive: true });
+      return () => window.removeEventListener("scroll", close);
+    }
+  }, [mobileOpen]);
+
   return (
-    <>
-      <header
-        className={[
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-[#FAF8F3]/90 backdrop-blur-md shadow-sm shadow-[#1F3A2D]/5"
-            : "bg-transparent",
-        ].join(" ")}
+    <header
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 50,
+        padding: "20px 40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        transition: "background-color 0.4s ease, backdrop-filter 0.4s ease",
+        backgroundColor: scrolled || mobileOpen ? "rgba(4, 47, 46, 0.92)" : "transparent",
+        backdropFilter: scrolled || mobileOpen ? "blur(12px)" : "none",
+        boxSizing: "border-box",
+      }}
+    >
+      <Link
+        href="/"
+        style={{
+          fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
+          fontSize: "18px",
+          fontWeight: 600,
+          color: "#fffbeb",
+          letterSpacing: "1px",
+          textTransform: "uppercase",
+          textDecoration: "none",
+          flexShrink: 0,
+        }}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
+        Gracious Greens
+      </Link>
+
+      {/* Desktop */}
+      <nav className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: "36px" }}>
+        {NAV_LINKS.map((link) => (
           <Link
-            href="/"
-            className="flex items-center gap-2 group"
-            aria-label="Gracious Greens home"
+            key={link.href}
+            href={link.href}
+            style={{
+              fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
+              fontSize: "13px",
+              fontWeight: 500,
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+              color: "#fffbeb",
+              textDecoration: "none",
+              transition: "opacity 0.3s ease",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.6"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
           >
-            <span className="text-xl group-hover:scale-110 transition-transform duration-200" aria-hidden>
-              🌿
-            </span>
-            <span
-              className="text-lg font-semibold text-[#1F3A2D] tracking-tight hidden sm:block"
-              style={{ fontFamily: "var(--font-fraunces, Georgia, serif)" }}
-            >
-              Gracious Greens
-            </span>
+            {link.label}
           </Link>
+        ))}
+        <button
+          onClick={open}
+          aria-label={`Cart (${itemCount} items)`}
+          style={{
+            fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
+            fontSize: "13px",
+            fontWeight: 500,
+            textTransform: "uppercase",
+            letterSpacing: "1.5px",
+            color: "#fffbeb",
+            background: "none",
+            cursor: "pointer",
+            padding: "8px 20px",
+            border: "1px solid rgba(255,251,235,0.3)",
+            borderRadius: "50px",
+            transition: "border-color 0.3s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,251,235,0.7)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,251,235,0.3)"; }}
+        >
+          Cart ({itemCount > 9 ? "9+" : itemCount})
+        </button>
+      </nav>
 
-          {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-[#22201C]/70 hover:text-[#1F3A2D] transition-colors duration-150 font-medium tracking-wide"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      {/* Mobile hamburger */}
+      <button
+        className="nav-mobile-btn"
+        onClick={() => setMobileOpen(!mobileOpen)}
+        aria-label="Toggle menu"
+        style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "none", flexDirection: "column", gap: "5px" }}
+      >
+        {[0, 1, 2].map((i) => (
+          <span key={i} style={{
+            display: "block", width: "22px", height: "1.5px", backgroundColor: "#fffbeb", borderRadius: "1px",
+            transition: "transform 0.3s ease, opacity 0.3s ease",
+            transform: mobileOpen && i === 0 ? "translateY(6.5px) rotate(45deg)" : mobileOpen && i === 2 ? "translateY(-6.5px) rotate(-45deg)" : "none",
+            opacity: mobileOpen && i === 1 ? 0 : 1,
+          }} />
+        ))}
+      </button>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-2">
-            {/* Search */}
-            <button
-              className="p-2 rounded-full text-[#22201C]/60 hover:text-[#1F3A2D] hover:bg-[#1F3A2D]/5 transition-all"
-              aria-label="Search"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
-            </button>
+      {mobileOpen && (
+        <div style={{ position: "absolute", top: "100%", left: 0, width: "100%", backgroundColor: "rgba(4,47,46,0.97)", backdropFilter: "blur(12px)", padding: "24px 40px 32px", display: "flex", flexDirection: "column", gap: "20px", borderTop: "1px solid rgba(255,251,235,0.08)" }}>
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
+              style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#fffbeb", textDecoration: "none", opacity: 0.85 }}>
+              {link.label}
+            </Link>
+          ))}
+          <button onClick={() => { setMobileOpen(false); open(); }}
+            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#fffbeb", background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0, opacity: 0.85 }}>
+            Cart ({itemCount})
+          </button>
+        </div>
+      )}
 
-            {/* Cart */}
-            <button
-              onClick={open}
-              className="relative p-2 rounded-full text-[#22201C]/60 hover:text-[#1F3A2D] hover:bg-[#1F3A2D]/5 transition-all"
-              aria-label={`Cart (${itemCount} items)`}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-[#C77B58] text-[#FAF8F3] text-[10px] font-bold px-1">
-                  {itemCount > 9 ? "9+" : itemCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2 rounded-full text-[#22201C]/60 hover:text-[#1F3A2D] hover:bg-[#1F3A2D]/5 transition-all"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                {mobileOpen ? (
-                  <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-                ) : (
-                  <><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></>
-                )}
-              </svg>
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden bg-[#FAF8F3] border-t border-[#1F3A2D]/10 px-4 py-4">
-            <ul className="flex flex-col gap-1">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-2.5 px-3 rounded-lg text-[#22201C] hover:bg-[#1F3A2D]/5 font-medium transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </header>
-
-      {/* Spacer so content isn't hidden under fixed nav */}
-      <div className="h-16" aria-hidden />
-    </>
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-desktop { display: none !important; }
+          .nav-mobile-btn { display: flex !important; }
+        }
+      `}</style>
+    </header>
   );
 }
