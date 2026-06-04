@@ -40,6 +40,16 @@ export function Hero() {
         <HeroCanvas />
       </div>
 
+      {/* Left-side vignette so text is always readable */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to right, rgba(4,47,46,0.92) 0%, rgba(4,47,46,0.55) 45%, transparent 72%)",
+          zIndex: 10,
+          pointerEvents: "none",
+        }}
+      />
       {/* Bottom fade */}
       <div
         style={{
@@ -47,24 +57,24 @@ export function Hero() {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: "50%",
+          height: "40%",
           background: "linear-gradient(to top, #042f2e, transparent)",
-          zIndex: 10,
+          zIndex: 11,
           pointerEvents: "none",
         }}
       />
 
-      {/* Copy */}
+      {/* Copy — left column, vertically centred */}
       <div
         style={{
           position: "relative",
           zIndex: 20,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-end",
+          justifyContent: "center",
           height: "100%",
-          padding: "0 40px 80px 40px",
-          maxWidth: "700px",
+          padding: "0 40px 0 56px",
+          maxWidth: "560px",
           pointerEvents: "none",
         }}
       >

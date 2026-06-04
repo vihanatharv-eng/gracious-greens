@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/cart-context";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/shop", label: "Collections" },
@@ -49,18 +50,41 @@ export function Navbar() {
     >
       <Link
         href="/"
-        style={{
+        style={{ textDecoration: "none", flexShrink: 0, display: "flex", alignItems: "center", gap: "12px" }}
+        aria-label="Gracious Greens home"
+      >
+        <span style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "52px",
+          height: "52px",
+          borderRadius: "50%",
+          backgroundColor: "#fffbeb",
+          flexShrink: 0,
+          overflow: "hidden",
+        }}>
+          <Image
+            src="/logo-mark.png"
+            alt="Gracious Greens mark"
+            width={36}
+            height={44}
+            priority
+            style={{ width: "36px", height: "44px", objectFit: "contain" }}
+          />
+        </span>
+        <span style={{
           fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
-          fontSize: "18px",
+          fontSize: "16px",
           fontWeight: 600,
           color: "#fffbeb",
-          letterSpacing: "1px",
+          letterSpacing: "0.08em",
           textTransform: "uppercase",
-          textDecoration: "none",
-          flexShrink: 0,
-        }}
-      >
-        Gracious Greens
+          lineHeight: 1,
+          whiteSpace: "nowrap",
+        }}>
+          Gracious Greens
+        </span>
       </Link>
 
       {/* Desktop */}

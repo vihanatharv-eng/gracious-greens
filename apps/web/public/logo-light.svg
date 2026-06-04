@@ -1,0 +1,15 @@
+<svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gracious Greens">
+  <!-- Leaf mark (30×48 scaled from 20×32 viewBox) -->
+  <g transform="scale(1.5)">
+    <path d="M10 1 C13.5 3.5,17.5 9,17.5 15 C17.5 20.5,14.5 25,10 27 C6.5 25.5,3 22,2.5 17 C1.8 12.5,3.5 7,6 4 C7.5 2.2,8.8 1,10 1Z" fill="#fffbeb"/>
+    <path d="M2.5 17 C1.2 15,1 11.5,3 9" stroke="rgba(4,47,46,0.22)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="10" y1="5" x2="10" y2="25" stroke="rgba(4,47,46,0.22)" stroke-width="0.9" stroke-linecap="round"/>
+    <path d="M10 12 C8 11.5,6 12,5 13" stroke="rgba(4,47,46,0.22)" stroke-width="0.7" stroke-linecap="round"/>
+    <path d="M10 12 C12 11.5,14 12,15 13" stroke="rgba(4,47,46,0.22)" stroke-width="0.7" stroke-linecap="round"/>
+    <path d="M10 17 C8 16.5,6.5 17,5.5 18.5" stroke="rgba(4,47,46,0.22)" stroke-width="0.7" stroke-linecap="round"/>
+    <path d="M10 17 C12 16.5,13.5 17,14.5 18.5" stroke="rgba(4,47,46,0.22)" stroke-width="0.7" stroke-linecap="round"/>
+    <line x1="10" y1="27" x2="10" y2="31" stroke="#fffbeb" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="46" y="32" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="600" fill="#fffbeb" letter-spacing="2.5" text-anchor="start" dominant-baseline="middle">GRACIOUS GREENS</text>
+</svg>

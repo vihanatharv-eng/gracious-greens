@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 const FOOTER_COLS = [
   { title: "Shop", links: [{ label: "All Plants", href: "/shop" }, { label: "Gift Sets", href: "/shop?category=Gift+Sets" }, { label: "Desk Plants", href: "/shop?category=Desk+Plants" }, { label: "Statement Plants", href: "/shop?category=Statement+Plants" }] },
@@ -57,8 +58,37 @@ export function Footer() {
         {/* Links */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "40px" }}>
           <div>
-            <div style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "20px", fontWeight: 600, color: "#fffbeb", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "16px" }}>
-              Gracious Greens
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <span style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                backgroundColor: "#fffbeb",
+                flexShrink: 0,
+                overflow: "hidden",
+              }}>
+                <Image
+                  src="/logo-mark.png"
+                  alt="Gracious Greens mark"
+                  width={34}
+                  height={40}
+                  style={{ width: "34px", height: "40px", objectFit: "contain" }}
+                />
+              </span>
+              <span style={{
+                fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
+                fontSize: "15px",
+                fontWeight: 600,
+                color: "#fffbeb",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                lineHeight: 1,
+              }}>
+                Gracious Greens
+              </span>
             </div>
             <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.4)", lineHeight: 1.6, maxWidth: "280px" }}>
               Handcrafted miniature botanical gifts, designed with care and rooted in sustainability.
