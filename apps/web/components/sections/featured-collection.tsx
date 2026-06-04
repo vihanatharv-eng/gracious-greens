@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,6 +17,13 @@ export function FeaturedCollection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Drag state stored in refs so event handlers don't need re-binding
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
+  const hasDragged = useRef(false);
+
+  // Track scroll position for progress bar
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -28,10 +35,45 @@ export function FeaturedCollection() {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Mouse drag-to-scroll
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    hasDragged.current = false;
+    startX.current = e.pageX - el.offsetLeft;
+    startScrollLeft.current = el.scrollLeft;
+    el.style.cursor = "grabbing";
+    el.style.userSelect = "none";
+  }, []);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!isDragging.current || !el) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // 1.5x multiplier for faster feel
+    if (Math.abs(walk) > 4) hasDragged.current = true;
+    el.scrollLeft = startScrollLeft.current - walk;
+  }, []);
+
+  const stopDrag = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDragging.current = false;
+    el.style.cursor = "grab";
+    el.style.userSelect = "";
+  }, []);
+
+  // Prevent card links from firing when the user was dragging
+  const onLinkClick = useCallback((e: React.MouseEvent) => {
+    if (hasDragged.current) e.preventDefault();
+  }, []);
+
   return (
     <section
       id="collections"
-      style={{ position: "relative", width: "100%", backgroundColor: "#fffbeb", padding: "120px 0", overflow: "hidden" }}
+      style={{ position: "relative", width: "100%", backgroundColor: "#FEF7E4", padding: "120px 0", overflow: "hidden" }}
     >
       {/* Header */}
       <div style={{ padding: "0 40px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
@@ -51,20 +93,35 @@ export function FeaturedCollection() {
         </Link>
       </div>
 
-      {/* Horizontal scroll */}
+      {/* Horizontal scroll carousel */}
       <div
         ref={scrollRef}
-        style={{ display: "flex", gap: "24px", overflowX: "auto", padding: "20px 40px 60px 40px", scrollbarWidth: "none", scrollSnapType: "x mandatory", cursor: "grab" }}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={stopDrag}
+        onMouseLeave={stopDrag}
+        style={{
+          display: "flex",
+          gap: "24px",
+          overflowX: "auto",
+          padding: "20px 120px 60px 40px",
+          scrollbarWidth: "none",
+          scrollSnapType: "x mandatory",
+          cursor: "grab",
+          // Prevent text selection while dragging
+          WebkitUserSelect: "none",
+        }}
       >
         {products.map((product, i) => (
           <Link
             key={i}
             href={`/shop/${product.slug}`}
-            style={{ flex: "0 0 320px", scrollSnapAlign: "start", textDecoration: "none" }}
+            onClick={onLinkClick}
+            style={{ flex: "0 0 clamp(280px, 28vw, 420px)", scrollSnapAlign: "start", textDecoration: "none" }}
           >
             <div
               style={{ backgroundColor: "#ffffff", borderRadius: "8px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.06)", transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.12)"; }}
+              onMouseEnter={(e) => { if (!isDragging.current) { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.12)"; } }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.06)"; }}
             >
               <div style={{ position: "relative", width: "100%", height: "380px", overflow: "hidden" }}>
@@ -72,10 +129,9 @@ export function FeaturedCollection() {
                   src={product.image}
                   alt={product.name}
                   fill
-                  style={{ objectFit: "cover", transition: "transform 0.6s cubic-bezier(0.16,1,0.3,1)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                  style={{ objectFit: "cover", transition: "transform 0.6s cubic-bezier(0.16,1,0.3,1)", pointerEvents: "none" }}
                   sizes="320px"
+                  draggable={false}
                 />
               </div>
               <div style={{ padding: "20px" }}>
@@ -94,13 +150,13 @@ export function FeaturedCollection() {
         ))}
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll progress indicator */}
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", marginTop: "20px" }}>
         <div style={{ width: "120px", height: "2px", backgroundColor: "rgba(4,47,46,0.15)", borderRadius: "1px", overflow: "hidden" }}>
           <div style={{ width: `${Math.max(15, scrollProgress * 100)}%`, height: "100%", backgroundColor: "#042f2e", borderRadius: "1px", transition: "width 0.2s ease" }} />
         </div>
         <span style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", color: "#57534e", textTransform: "uppercase", letterSpacing: "1px" }}>
-          Scroll to explore
+          Drag to explore
         </span>
       </div>
     </section>

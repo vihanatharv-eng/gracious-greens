@@ -179,7 +179,7 @@ export default function PlantScrollSequence() {
         position: "relative",
         width: "100%",
         height: SCROLL_HEIGHT,
-        backgroundColor: "#042f2e",
+        backgroundColor: "#FEF7E4",
       }}
     >
       {/* ── Sticky viewport ───────────────────────────────────────────────── */}
@@ -212,7 +212,7 @@ export default function PlantScrollSequence() {
               fontWeight: 400,
               lineHeight: 1.1,
               letterSpacing: "-1.6px",
-              color: "#fffbeb",
+              color: "#042f2e",
               marginBottom: "24px",
             }}
           >
@@ -226,7 +226,7 @@ export default function PlantScrollSequence() {
               fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
               fontSize: "16px",
               lineHeight: 1.6,
-              color: "rgba(255,251,235,0.7)",
+              color: "rgba(4,47,46,0.65)",
               marginBottom: "40px",
               maxWidth: "400px",
             }}
@@ -272,7 +272,7 @@ export default function PlantScrollSequence() {
           style={{
             position: "relative",
             height: "100%",
-            backgroundColor: "#042f2e",
+            backgroundColor: "#FEF7E4",
           }}
         >
           {/* Canvas starts invisible; revealed once frame 0 loads */}
@@ -295,7 +295,7 @@ export default function PlantScrollSequence() {
           left: 0,
           width: "100%",
           height: "120px",
-          background: "linear-gradient(to top, #042f2e, transparent)",
+          background: "linear-gradient(to top, #FEF7E4, transparent)",
           pointerEvents: "none",
           zIndex: 10,
         }}

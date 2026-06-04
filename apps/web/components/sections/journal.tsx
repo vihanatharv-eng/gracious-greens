@@ -69,13 +69,13 @@ export function Journal() {
             <h3 style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "2px", color: "#c2410c", marginBottom: "16px" }}>
               The Journal
             </h3>
-            <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(40px, 4vw, 60px)", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-1.2px", color: "#fffbeb" }}>
+            <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(40px, 4vw, 60px)", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-1.2px", color: "#FEF7E4" }}>
               Ideas, Inspo &amp; Behind the Scenes
             </h2>
           </div>
           <Link
             href="/journal"
-            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#fffbeb", textDecoration: "none", borderBottom: "1px solid rgba(255,251,235,0.4)", paddingBottom: "4px" }}
+            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#FEF7E4", textDecoration: "none", borderBottom: "1px solid rgba(255,251,235,0.4)", paddingBottom: "4px" }}
           >
             All Articles
           </Link>
@@ -127,7 +127,7 @@ export function Journal() {
                     {article.readTime}
                   </span>
                 </div>
-                <h4 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: i === 0 ? "32px" : "22px", fontWeight: 400, lineHeight: 1.3, color: "#fffbeb", marginBottom: "8px" }}>
+                <h4 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: i === 0 ? "32px" : "22px", fontWeight: 400, lineHeight: 1.3, color: "#FEF7E4", marginBottom: "8px" }}>
                   {article.title}
                 </h4>
                 <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", lineHeight: 1.6, color: "rgba(255,251,235,0.7)", maxWidth: "400px" }}>

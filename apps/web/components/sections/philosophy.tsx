@@ -56,7 +56,7 @@ export function Philosophy() {
         .fromTo(word3Ref.current!, { x: -600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.55)
         .to(c[1]!, { x: "-35%", scale: 0.85, opacity: 0.4, duration: 0.5, ease: "power2.inOut" }, 0.65)
         .fromTo(c[2]!, { x: "100vw", skewX: -8, opacity: 0 }, { x: 0, skewX: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.7)
-        .to(sectionRef.current!, { backgroundColor: "#fffbeb", duration: 1 }, 0.2);
+        .to(sectionRef.current!, { backgroundColor: "#FEF7E4", duration: 1 }, 0.2);
     }, sectionRef);
 
     return () => ctx.revert();
@@ -69,7 +69,7 @@ export function Philosophy() {
         position: "relative",
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#fffbeb",
+        backgroundColor: "#FEF7E4",
         overflow: "hidden",
       }}
     >

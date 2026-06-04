@@ -7,7 +7,7 @@
  *   <GGMark />      — leaf icon only (favicon, small contexts)
  *   <Logo />        — leaf + wordmark (navbar, footer, og-image)
  *
- * variant="light"  → cream  #fffbeb  (use on dark backgrounds: hero, nav, footer)
+ * variant="light"  → cream  #FEF7E4  (use on dark backgrounds: hero, nav, footer)
  * variant="dark"   → teal   #042f2e  (use on light backgrounds: shop, philosophy)
  */
 
@@ -26,7 +26,7 @@ export function GGMark({
   variant = "light",
   size = 28,
 }: Pick<LogoProps, "variant" | "size">) {
-  const fill = variant === "light" ? "#fffbeb" : "#042f2e";
+  const fill = variant === "light" ? "#FEF7E4" : "#042f2e";
   // Vein contrasts against the fill
   const vein =
     variant === "light"
@@ -133,7 +133,7 @@ export function Logo({
   size = 28,
   showWordmark = true,
 }: LogoProps) {
-  const color = variant === "light" ? "#fffbeb" : "#042f2e";
+  const color = variant === "light" ? "#FEF7E4" : "#042f2e";
 
   return (
     <span

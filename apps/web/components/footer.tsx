@@ -23,7 +23,7 @@ export function Footer() {
         {/* Newsletter */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", marginBottom: "80px" }}>
           <div>
-            <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(32px, 3vw, 48px)", fontWeight: 400, lineHeight: 1.2, color: "#fffbeb", marginBottom: "20px" }}>
+            <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(32px, 3vw, 48px)", fontWeight: 400, lineHeight: 1.2, color: "#FEF7E4", marginBottom: "20px" }}>
               Stay rooted with us.
             </h2>
             <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "16px", lineHeight: 1.6, color: "rgba(255,251,235,0.6)", maxWidth: "400px" }}>
@@ -37,7 +37,7 @@ export function Footer() {
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{ flex: 1, padding: "16px 24px", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "50px", color: "#fffbeb", fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", outline: "none" }}
+                style={{ flex: 1, padding: "16px 24px", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "50px", color: "#FEF7E4", fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", outline: "none" }}
                 onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,251,235,0.4)"; }}
                 onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
               />
@@ -66,7 +66,7 @@ export function Footer() {
                 width: "48px",
                 height: "48px",
                 borderRadius: "50%",
-                backgroundColor: "#fffbeb",
+                backgroundColor: "#FEF7E4",
                 flexShrink: 0,
                 overflow: "hidden",
               }}>
@@ -82,7 +82,7 @@ export function Footer() {
                 fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
                 fontSize: "15px",
                 fontWeight: 600,
-                color: "#fffbeb",
+                color: "#FEF7E4",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 lineHeight: 1,
@@ -107,7 +107,7 @@ export function Footer() {
                       <Link
                         href={link.href}
                         style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.6)", textDecoration: "none", transition: "color 0.3s ease" }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = "#fffbeb"; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = "#FEF7E4"; }}
                         onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,251,235,0.6)"; }}
                       >
                         {link.label}

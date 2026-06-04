@@ -42,9 +42,9 @@ export function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        transition: "background-color 0.4s ease, backdrop-filter 0.4s ease",
-        backgroundColor: scrolled || mobileOpen ? "rgba(4, 47, 46, 0.92)" : "transparent",
-        backdropFilter: scrolled || mobileOpen ? "blur(12px)" : "none",
+        transition: "background-color 0.3s ease",
+        backgroundColor: scrolled ? "rgba(4, 47, 46, 0.97)" : "rgba(4, 47, 46, 0.92)",
+        backdropFilter: "blur(12px)",
         boxSizing: "border-box",
       }}
     >
@@ -60,7 +60,7 @@ export function Navbar() {
           width: "52px",
           height: "52px",
           borderRadius: "50%",
-          backgroundColor: "#fffbeb",
+          backgroundColor: "#FEF7E4",
           flexShrink: 0,
           overflow: "hidden",
         }}>
@@ -77,7 +77,7 @@ export function Navbar() {
           fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
           fontSize: "16px",
           fontWeight: 600,
-          color: "#fffbeb",
+          color: "#FEF7E4",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           lineHeight: 1,
@@ -99,7 +99,7 @@ export function Navbar() {
               fontWeight: 500,
               textTransform: "uppercase",
               letterSpacing: "1.5px",
-              color: "#fffbeb",
+              color: "#FEF7E4",
               textDecoration: "none",
               transition: "opacity 0.3s ease",
             }}
@@ -118,7 +118,7 @@ export function Navbar() {
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "1.5px",
-            color: "#fffbeb",
+            color: "#FEF7E4",
             background: "none",
             cursor: "pointer",
             padding: "8px 20px",
@@ -142,7 +142,7 @@ export function Navbar() {
       >
         {[0, 1, 2].map((i) => (
           <span key={i} style={{
-            display: "block", width: "22px", height: "1.5px", backgroundColor: "#fffbeb", borderRadius: "1px",
+            display: "block", width: "22px", height: "1.5px", backgroundColor: "#FEF7E4", borderRadius: "1px",
             transition: "transform 0.3s ease, opacity 0.3s ease",
             transform: mobileOpen && i === 0 ? "translateY(6.5px) rotate(45deg)" : mobileOpen && i === 2 ? "translateY(-6.5px) rotate(-45deg)" : "none",
             opacity: mobileOpen && i === 1 ? 0 : 1,
@@ -154,12 +154,12 @@ export function Navbar() {
         <div style={{ position: "absolute", top: "100%", left: 0, width: "100%", backgroundColor: "rgba(4,47,46,0.97)", backdropFilter: "blur(12px)", padding: "24px 40px 32px", display: "flex", flexDirection: "column", gap: "20px", borderTop: "1px solid rgba(255,251,235,0.08)" }}>
           {NAV_LINKS.map((link) => (
             <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-              style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#fffbeb", textDecoration: "none", opacity: 0.85 }}>
+              style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#FEF7E4", textDecoration: "none", opacity: 0.85 }}>
               {link.label}
             </Link>
           ))}
           <button onClick={() => { setMobileOpen(false); open(); }}
-            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#fffbeb", background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0, opacity: 0.85 }}>
+            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#FEF7E4", background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0, opacity: 0.85 }}>
             Cart ({itemCount})
           </button>
         </div>
