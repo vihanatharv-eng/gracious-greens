@@ -10,27 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const articles = [
   {
-    title: "How to Care for Your Miniature Succulent",
-    excerpt: "A comprehensive guide to keeping your tiny garden thriving — from watering schedules to light requirements.",
+    title: "How a Custom Scene Goes from Idea to Your Doorstep",
+    excerpt: "From the first WhatsApp message to the final figurine placement — here's exactly how we build your story, step by step.",
     image: "/images/bg-journal-1.jpg",
     date: "May 2026",
     readTime: "5 min read",
     featured: true,
   },
   {
-    title: "The Perfect Gift for Any Occasion",
-    excerpt: "Why miniature plants make the most thoughtful and lasting gifts for the people you love.",
+    title: "Why Miniature Scenes Make the Most Memorable Gifts",
+    excerpt: "Unlike flowers or sweets, a custom scene is something people keep, display, and talk about. Here's what makes them so special.",
     image: "/images/bg-journal-2.jpg",
     date: "April 2026",
     readTime: "3 min read",
     featured: false,
   },
   {
-    title: "Building Your First Terrarium",
-    excerpt: "Step-by-step instructions for creating a closed ecosystem that brings a touch of nature indoors.",
+    title: "Corporate Gifting, Reimagined",
+    excerpt: "How brands and organisations are using personalised miniature scenes to leave a lasting impression on clients and teams.",
     image: "/images/philosophy-artisan.jpg",
     date: "March 2026",
-    readTime: "7 min read",
+    readTime: "4 min read",
     featured: false,
   },
 ];
@@ -70,7 +70,7 @@ export function Journal() {
               The Journal
             </h3>
             <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(40px, 4vw, 60px)", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-1.2px", color: "#fffbeb" }}>
-              Stories from the Greenhouse
+              Ideas, Inspo &amp; Behind the Scenes
             </h2>
           </div>
           <Link

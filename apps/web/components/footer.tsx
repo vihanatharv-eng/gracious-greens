@@ -27,7 +27,7 @@ export function Footer() {
               Stay rooted with us.
             </h2>
             <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "16px", lineHeight: 1.6, color: "rgba(255,251,235,0.6)", maxWidth: "400px" }}>
-              Subscribe for plant care tips, new collection previews, and exclusive offers.
+              Get scene ideas, behind-the-scenes peeks at new creations, and exclusive offers.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
@@ -91,7 +91,7 @@ export function Footer() {
               </span>
             </div>
             <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.4)", lineHeight: 1.6, maxWidth: "280px" }}>
-              Handcrafted miniature botanical gifts, designed with care and rooted in sustainability.
+              Custom-built miniature scene planters — crafted around your story, delivered with care.
             </p>
           </div>
 

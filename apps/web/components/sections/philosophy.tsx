@@ -9,21 +9,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const cards = [
   {
-    title: "Sustainable Sourcing",
+    title: "Your Vision, Our Hands",
     description:
-      "Every plant is ethically sourced from certified nurseries. We prioritise local growers and seasonal varieties.",
+      "Tell us the story you want to tell — a family portrait, a milestone, a message — and we build it, figurine by figurine, prop by prop.",
     image: "/images/philosophy-artisan.jpg",
   },
   {
-    title: "Artisan Crafting",
+    title: "Every Detail Is Intentional",
     description:
-      "Each miniature gift is assembled by hand with careful attention to composition, colour, and the natural character of every plant.",
+      "From tiny ceramic children to handpainted animals and custom signage, every element in your scene is chosen to carry meaning. Nothing is decorative by accident.",
     image: "/images/bg-journal-1.jpg",
   },
   {
-    title: "Lifetime Care",
+    title: "A Keepsake, Not Just a Gift",
     description:
-      "We provide detailed care guides and ongoing support. Your plant comes with a lifetime care commitment from our team.",
+      "Unlike flowers, your miniature scene won't wilt. It's built to display, to treasure, and to spark conversation for years to come.",
     image: "/images/bg-journal-2.jpg",
   },
 ];
@@ -76,9 +76,9 @@ export function Philosophy() {
       {/* Outline words */}
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", textAlign: "center", zIndex: 1, pointerEvents: "none" }}>
         {[
-          { ref: word1Ref, text: "Cultivated", color: "#042f2e" },
-          { ref: word2Ref, text: "Rooted", color: "#c2410c" },
-          { ref: word3Ref, text: "Curated", color: "#042f2e" },
+          { ref: word1Ref, text: "Imagined", color: "#042f2e" },
+          { ref: word2Ref, text: "Crafted", color: "#c2410c" },
+          { ref: word3Ref, text: "Gifted", color: "#042f2e" },
         ].map(({ ref, text, color }, i) => (
           <div
             key={text}
@@ -143,7 +143,7 @@ export function Philosophy() {
 
       {/* Handwritten accent */}
       <div style={{ position: "absolute", bottom: "60px", left: "50%", transform: "translateX(-50%)", fontFamily: "var(--font-caveat, 'Caveat', cursive)", fontSize: "28px", color: "#c2410c", zIndex: 15, opacity: 0.7, whiteSpace: "nowrap" }}>
-        Discover our process
+        How your story is built
       </div>
     </div>
   );

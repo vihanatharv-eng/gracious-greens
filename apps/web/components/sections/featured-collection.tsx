@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
-  { name: "Monstera Deliciosa", price: "₹899", image: "/images/product-calathea.jpg", category: "Statement Plant", slug: "monstera-deliciosa" },
-  { name: "Succulent Trio", price: "₹599", image: "/images/product-succulent-1.jpg", category: "Gift Set", slug: "succulent-trio-gift-set" },
-  { name: "Desert Cactus Trio", price: "₹749", image: "/images/product-cactus-1.jpg", category: "Cactus", slug: "cactus-trio" },
-  { name: "Artisan Gift Box", price: "₹1,199", image: "/images/product-gift-set.jpg", category: "Gift Set", slug: "succulent-trio-gift-set" },
-  { name: "Peace Lily", price: "₹699", image: "/images/product-collection.jpg", category: "Flowering Plant", slug: "peace-lily" },
-  { name: "Golden Pothos", price: "₹449", image: "/images/product-succulent-2.jpg", category: "Desk Plant", slug: "pothos-golden-queen" },
+  { name: "The Family Garden", price: "₹899", image: "/images/product-calathea.jpg", category: "Family Scene", slug: "monstera-deliciosa" },
+  { name: "The Couple's Nook", price: "₹799", image: "/images/product-succulent-1.jpg", category: "Couple Scene", slug: "succulent-trio-gift-set" },
+  { name: "A Day at the Park", price: "₹999", image: "/images/product-cactus-1.jpg", category: "Occasion Scene", slug: "cactus-trio" },
+  { name: "Corporate Gift Set", price: "₹1,499", image: "/images/product-gift-set.jpg", category: "Corporate", slug: "succulent-trio-gift-set" },
+  { name: "Clean & Green", price: "₹1,199", image: "/images/product-collection.jpg", category: "Cause Scene", slug: "peace-lily" },
+  { name: "Birthday Bloom", price: "₹699", image: "/images/product-succulent-2.jpg", category: "Celebration", slug: "pothos-golden-queen" },
 ];
 
 export function FeaturedCollection() {
@@ -37,10 +37,10 @@ export function FeaturedCollection() {
       <div style={{ padding: "0 40px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
         <div>
           <h3 style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "2px", color: "#c2410c", marginBottom: "16px" }}>
-            Our Collection
+            Our Creations
           </h3>
           <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(40px, 4vw, 60px)", fontWeight: 400, lineHeight: 1.2, letterSpacing: "-1.2px", color: "#042f2e" }}>
-            Living Art for Your Space
+            Stories Told in Miniature
           </h2>
         </div>
         <Link
