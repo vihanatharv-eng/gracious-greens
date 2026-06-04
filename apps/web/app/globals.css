@@ -86,3 +86,28 @@ h1, h2, h3 {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* ─── PlantScrollSequence responsive ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .pss-sticky {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto;
+    height: auto !important;
+    position: relative !important;
+  }
+  .pss-text {
+    padding: 100px 24px 32px !important;
+    justify-content: flex-start !important;
+  }
+  .pss-canvas-wrap {
+    height: 70vw !important;
+    min-height: 260px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .pss-text {
+    padding: 0 24px 0 32px !important;
+  }
+}

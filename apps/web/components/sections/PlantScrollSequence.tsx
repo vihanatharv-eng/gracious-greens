@@ -290,7 +290,7 @@ export default function PlantScrollSequence() {
       {/* ── Bottom fade into next section ─────────────────────────────────── */}
       <div
         style={{
-          position: "sticky",
+          position: "absolute",
           bottom: 0,
           left: 0,
           width: "100%",
@@ -301,33 +301,7 @@ export default function PlantScrollSequence() {
         }}
       />
 
-      {/* ── Responsive overrides ──────────────────────────────────────────── */}
-      <style>{`
-        /* Mobile: stack text above canvas, disable sticky */
-        @media (max-width: 768px) {
-          .pss-sticky {
-            grid-template-columns: 1fr !important;
-            grid-template-rows: auto auto;
-            height: auto !important;
-            position: relative !important;
-          }
-          .pss-text {
-            padding: 100px 24px 32px !important;
-            justify-content: flex-start !important;
-          }
-          .pss-canvas-wrap {
-            height: 70vw !important;
-            min-height: 260px;
-          }
-        }
-
-        /* Tablet: narrower text column */
-        @media (min-width: 769px) and (max-width: 1024px) {
-          .pss-text {
-            padding: 0 24px 0 32px !important;
-          }
-        }
-      `}</style>
+      {/* Responsive styles live in globals.css (.pss-sticky, .pss-text, .pss-canvas-wrap) */}
     </section>
   );
 }
