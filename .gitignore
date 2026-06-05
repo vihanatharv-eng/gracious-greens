@@ -22,13 +22,16 @@ out/
 !.env.example
 !**/.env.example
 
-# OS
-.DS_Store
-Thumbs.db
-
 # Editor
 .vscode/settings.json
 .idea/
+
+# Claude Code local state
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
