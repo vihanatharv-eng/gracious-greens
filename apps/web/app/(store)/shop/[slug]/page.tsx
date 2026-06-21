@@ -39,7 +39,7 @@ function ProductDetail({ product }: { product: DemoProduct }) {
 
   const { addItem } = useCart();
   const selectedVariant = product.variants[selectedVariantIdx]!;
-  const lineTotal = (selectedVariant.price + (giftWrap ? 50 : 0)) * qty;
+  const lineTotal = (selectedVariant.price + (giftWrap ? 79 : 0)) * qty;
 
   // Related products (same category, exclude current)
   const related = DEMO_PRODUCTS
@@ -256,7 +256,7 @@ function ProductDetail({ product }: { product: DemoProduct }) {
                 </p>
                 {qty > 1 && (
                   <p className="text-xs text-[#22201C]/40">
-                    {formatPrice(selectedVariant.price + (giftWrap ? 50 : 0))} each
+                    {formatPrice(selectedVariant.price + (giftWrap ? 79 : 0))} each
                   </p>
                 )}
               </div>
@@ -307,7 +307,7 @@ function ProductDetail({ product }: { product: DemoProduct }) {
                   </div>
                   <div className="flex-1">
                     <span className="text-sm font-medium text-[#1F3A2D]">Gift wrapping</span>
-                    <span className="text-xs text-[#22201C]/40 ml-2">+₹50</span>
+                    <span className="text-xs text-[#22201C]/40 ml-2">+₹79</span>
                     <p className="text-[10px] text-[#22201C]/40 mt-0.5">Elegant kraft paper with ribbon + sticker seal</p>
                   </div>
                   <span className="text-2xl flex-shrink-0" aria-hidden>🎁</span>

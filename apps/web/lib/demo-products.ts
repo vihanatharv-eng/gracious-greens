@@ -1,6 +1,5 @@
 // Real product catalogue — Gracious Greens handcrafted miniature scene planters & decor.
-// PRICES ARE PLACEHOLDERS pending confirmation from Parul. Update `basePrice` + variant
-// `price` once real pricing is set. Photos live in /public/images/catalogue/.
+// Photos live in /public/images/catalogue/. Pricing confirmed 2026-06-21.
 
 export type DemoVariant = {
   id: string;
@@ -45,7 +44,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A whole family gathered for a picnic — tiny figures sharing tea on a bed of moss, beneath a live ZZ plant. Set in a rustic glazed bowl with a hand-finished wooden rim.",
     story:
       "This is the scene we built our brand around — the warmth of people together, captured in miniature. Gift it to a family, or to anyone who misses being surrounded by the ones they love.",
-    basePrice: 999,
+    basePrice: 1299,
     emoji: "🧺",
     gradient: "linear-gradient(135deg, #8B6F47 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/family-picnic.png",
@@ -61,8 +60,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 18,
     isBestseller: true,
     variants: [
-      { id: "1a", name: "As Shown", price: 999, attributes: {}, stock: 6 },
-      { id: "1b", name: "As Shown + Gift Wrap", price: 1099, attributes: {}, stock: 6 },
+      { id: "1a", name: "As Shown", price: 1299, attributes: {}, stock: 6 },
     ],
   },
   {
@@ -74,7 +72,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A couple seated by a tiny stream, framed by two arching ZZ plants in an elegant oval boat planter. Pebbles, moss, and miniature props complete the quiet little world.",
     story:
       "Made for anniversaries, weddings, and 'just because' — a keepsake that says the two of you built something that lasts.",
-    basePrice: 949,
+    basePrice: 1199,
     emoji: "💑",
     gradient: "linear-gradient(135deg, #C8D9C0 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/couples-nook.png",
@@ -90,8 +88,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 14,
     isBestseller: true,
     variants: [
-      { id: "2a", name: "As Shown", price: 949, attributes: {}, stock: 5 },
-      { id: "2b", name: "As Shown + Gift Wrap", price: 1049, attributes: {}, stock: 5 },
+      { id: "2a", name: "As Shown", price: 1199, attributes: {}, stock: 5 },
     ],
   },
   {
@@ -103,7 +100,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A cheerful gnome and his bunny friends nestled among pebbles, under a variegated aglaonema, in a hand-painted floral ceramic bowl.",
     story:
       "Gnomes have guarded gardens for centuries — a charm of good fortune. A bright, friendly housewarming gift that brings a smile every time it's seen.",
-    basePrice: 849,
+    basePrice: 899,
     emoji: "🍄",
     gradient: "linear-gradient(135deg, #D99A7E 0%, #FEF7E4 60%, #A8BCA1 100%)",
     image: "/images/catalogue/garden-gnome.png",
@@ -119,8 +116,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 11,
     isNew: true,
     variants: [
-      { id: "3a", name: "As Shown", price: 849, attributes: {}, stock: 7 },
-      { id: "3b", name: "As Shown + Gift Wrap", price: 949, attributes: {}, stock: 7 },
+      { id: "3a", name: "As Shown", price: 899, attributes: {}, stock: 7 },
     ],
   },
   {
@@ -132,7 +128,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A serene blue Buddha reads beside bunnies and a bright butterfly, set under a spotted aglaonema in a textured stone-finish bowl.",
     story:
       "A gift of stillness. Perfect for a meditation corner, a work desk that needs calming, or anyone learning to slow down.",
-    basePrice: 899,
+    basePrice: 999,
     emoji: "🧘",
     gradient: "linear-gradient(135deg, #2D5040 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/reading-buddha.png",
@@ -148,8 +144,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 16,
     isBestseller: true,
     variants: [
-      { id: "4a", name: "As Shown", price: 899, attributes: {}, stock: 6 },
-      { id: "4b", name: "As Shown + Gift Wrap", price: 999, attributes: {}, stock: 6 },
+      { id: "4a", name: "As Shown", price: 999, attributes: {}, stock: 6 },
     ],
   },
   {
@@ -161,7 +156,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A baby Buddha in a saffron robe meditates among pebbles and a tiny mushroom, beneath glossy ZZ foliage, in a moss-green floral ceramic bowl.",
     story:
       "New beginnings, gentle and quiet. A thoughtful gift for housewarmings, new chapters, or a moment of peace on a busy shelf.",
-    basePrice: 879,
+    basePrice: 949,
     emoji: "🪷",
     gradient: "linear-gradient(135deg, #A8BCA1 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/little-buddha.png",
@@ -177,8 +172,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 9,
     isNew: true,
     variants: [
-      { id: "5a", name: "As Shown", price: 879, attributes: {}, stock: 5 },
-      { id: "5b", name: "As Shown + Gift Wrap", price: 979, attributes: {}, stock: 5 },
+      { id: "5a", name: "As Shown", price: 949, attributes: {}, stock: 5 },
     ],
   },
   {
@@ -190,7 +184,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Three giggling baby monks sit before a live jade plant in a fluted white pot, wrapped in burlap and a floral ribbon finished with tiny roses.",
     story:
       "The timeless 'three wise monkeys' reimagined as monks — a charm of positivity and good conduct. The jade plant itself is a symbol of prosperity.",
-    basePrice: 749,
+    basePrice: 849,
     emoji: "🙈",
     gradient: "linear-gradient(135deg, #FEF7E4 0%, #C8D9C0 60%, #A8BCA1 100%)",
     image: "/images/catalogue/three-monks.png",
@@ -205,8 +199,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     rating: 4.9,
     reviewCount: 12,
     variants: [
-      { id: "6a", name: "As Shown", price: 749, attributes: {}, stock: 8 },
-      { id: "6b", name: "As Shown + Gift Wrap", price: 849, attributes: {}, stock: 8 },
+      { id: "6a", name: "As Shown", price: 849, attributes: {}, stock: 8 },
     ],
   },
   {
@@ -218,7 +211,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Hand-painted Labrador and German Shepherd figures with a built-in pocket for pens, brushes, or a small succulent. Sold individually or as a pair.",
     story:
       "For the dog lover, the desk-dweller, the one who works late. A loyal little companion that keeps the workspace cheerful.",
-    basePrice: 699,
+    basePrice: 649,
     emoji: "🐕",
     gradient: "linear-gradient(135deg, #D4C5A9 0%, #C77B58 60%, #FEF7E4 100%)",
     image: "/images/catalogue/loyal-companions.png",
@@ -233,8 +226,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     rating: 4.7,
     reviewCount: 8,
     variants: [
-      { id: "7a", name: "Single Dog", price: 699, attributes: {}, stock: 10 },
-      { id: "7b", name: "Pair (Labrador + Shepherd)", price: 1299, attributes: {}, stock: 5 },
+      { id: "7a", name: "Single Dog", price: 649, attributes: {}, stock: 10 },
+      { id: "7b", name: "Pair (Labrador + Shepherd)", price: 1199, attributes: {}, stock: 5 },
     ],
   },
   {
@@ -272,7 +265,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Two ornate owls in blue, white, and silver, perched side by side on hand-finished birch logs. A charming pair that's better together.",
     story:
       "A play on words and a sweet sentiment — a gift for a partner, a best friend, or anyone you'd happily perch beside.",
-    basePrice: 799,
+    basePrice: 899,
     emoji: "🦉",
     gradient: "linear-gradient(135deg, #2D5040 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/owl-pair.png",
@@ -287,7 +280,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 10,
     isBestseller: true,
     variants: [
-      { id: "9a", name: "Pair", price: 799, attributes: {}, stock: 9 },
+      { id: "9a", name: "Pair", price: 899, attributes: {}, stock: 9 },
     ],
   },
 ];
