@@ -28,30 +28,7 @@ export function Hero() {
       {/* ── Layer 0: paper grain (tiled data-URI — rasterised once, cheap) ── */}
       <div className="hero-grain" aria-hidden="true" />
 
-      {/* ── Layer 1: oversized botanical line-art (fills the centre) ──────── */}
-      <div className="hero-botanical" aria-hidden="true">
-        <svg viewBox="0 0 700 760" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <g id="hero-leaf">
-              <path d="M0 0 C 28 -46, 88 -50, 116 -8 C 88 18, 28 14, 0 0 Z" />
-              <path d="M8 -1 C 44 -14, 78 -16, 108 -9" />
-            </g>
-          </defs>
-          <g stroke="#042f2e" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            {/* main stem — a gentle S that travels up through the composition */}
-            <path d="M352 748 C 330 612, 366 530, 350 442 C 336 360, 372 292, 356 210 C 344 142, 378 86, 366 18" />
-            <use href="#hero-leaf" transform="translate(350 596) rotate(-28) scale(1.12)" />
-            <use href="#hero-leaf" transform="translate(358 506) rotate(152) scale(1.05)" />
-            <use href="#hero-leaf" transform="translate(348 420) rotate(-20) scale(1.18)" />
-            <use href="#hero-leaf" transform="translate(362 332) rotate(160) scale(1.02)" />
-            <use href="#hero-leaf" transform="translate(350 248) rotate(-15) scale(1.1)" />
-            <use href="#hero-leaf" transform="translate(366 166) rotate(166) scale(0.92)" />
-            <use href="#hero-leaf" transform="translate(360 96) rotate(-12) scale(0.86)" />
-          </g>
-        </svg>
-      </div>
-
-      {/* ── Layer 2: soft spotlight behind the product ───────────────────── */}
+      {/* ── Layer 1: soft spotlight behind the product ───────────────────── */}
       <div className="hero-spotlight" aria-hidden="true" />
 
       {/* ── Left: brand copy ─────────────────────────────────────────────── */}
@@ -131,17 +108,6 @@ export function Hero() {
           background-repeat: repeat;
           background-size: 140px 140px;
         }
-        .hero-botanical {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: clamp(640px, 56vw, 1040px);
-          transform: translate(-50%, -50%);
-          z-index: 0;
-          opacity: 0.06;
-          pointer-events: none;
-        }
-        .hero-botanical svg { width: 100%; height: auto; display: block; }
         .hero-spotlight {
           position: absolute;
           top: 50%;
@@ -289,12 +255,7 @@ export function Hero() {
 
         /* ── Motion (opt-in: add 'hero--motion' to .hero-section) ── */
         @media (prefers-reduced-motion: no-preference) {
-          .hero--motion .hero-botanical { animation: heroDrift 22s ease-in-out infinite alternate; }
           .hero--motion .hero-float { animation: heroFloat 7s ease-in-out infinite; }
-        }
-        @keyframes heroDrift {
-          from { transform: translate(-50%, -50%); }
-          to   { transform: translate(-50%, calc(-50% - 16px)); }
         }
         @keyframes heroFloat {
           0%, 100% { transform: translateY(0); }
@@ -306,7 +267,6 @@ export function Hero() {
           .hero-section { grid-template-columns: 1fr 1.08fr; }
           .hero-text { padding: 120px 20px 80px 40px; }
           .hero-product-img { padding: 72px 28px 72px 0; }
-          .hero-botanical { opacity: 0.05; }
         }
 
         /* ── Mobile ── */
@@ -329,7 +289,6 @@ export function Hero() {
             padding: 0 24px 36px;
           }
           .hero-product-shadow { left: 50%; bottom: 18%; width: 50%; }
-          .hero-botanical { width: 130%; opacity: 0.05; top: 62%; }
           .hero-spotlight { width: 100%; top: 70%; height: 50%; }
           .hero-trust { gap: 6px 4px; }
           .hero-trust-item { font-size: 10px; letter-spacing: 1px; }
