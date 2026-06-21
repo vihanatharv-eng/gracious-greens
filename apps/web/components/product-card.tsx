@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import type { DemoProduct } from "@/lib/demo-products";
 import { formatPrice, cn } from "@/lib/utils";
@@ -43,19 +44,18 @@ export function ProductCard({ product, className }: ProductCardProps) {
         className
       )}
     >
-      {/* Image area — gradient placeholder until real photos are uploaded */}
+      {/* Image area — real product photo */}
       <div
-        className="relative aspect-[4/5] flex items-center justify-center overflow-hidden"
+        className="relative aspect-[4/5] overflow-hidden"
         style={{ background: product.gradient }}
       >
-        {/* Plant emoji */}
-        <span
-          className="text-8xl select-none transition-transform duration-500 group-hover:scale-110"
-          role="img"
-          aria-label={product.title}
-        >
-          {product.emoji}
-        </span>
+        <Image
+          src={product.image}
+          alt={product.title}
+          fill
+          sizes="(max-width: 768px) 50vw, 320px"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">

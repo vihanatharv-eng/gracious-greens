@@ -75,10 +75,10 @@ function ShopContent() {
             className="text-3xl sm:text-4xl font-semibold text-[#1F3A2D]"
             style={{ fontFamily: "var(--font-fraunces, Georgia, serif)" }}
           >
-            Our Plants
+            Our Creations
           </h1>
           <p className="text-[#22201C]/50 mt-2 text-sm">
-            {filtered.length} {filtered.length === 1 ? "plant" : "plants"} — handpicked with love
+            {filtered.length} {filtered.length === 1 ? "creation" : "creations"} — each handcrafted to tell a story
           </p>
         </div>
       </div>

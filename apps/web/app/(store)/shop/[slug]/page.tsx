@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { use } from "react";
 import { DEMO_PRODUCTS } from "@/lib/demo-products";
 import { formatPrice, cn } from "@/lib/utils";
@@ -87,16 +88,17 @@ function ProductDetail({ product }: { product: DemoProduct }) {
           {/* ── Left: Image ── */}
           <div className="space-y-4">
             <div
-              className="relative aspect-square rounded-3xl flex items-center justify-center overflow-hidden"
+              className="relative aspect-square rounded-3xl overflow-hidden"
               style={{ background: product.gradient }}
             >
-              <span
-                className="text-[180px] select-none"
-                role="img"
-                aria-label={product.title}
-              >
-                {product.emoji}
-              </span>
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
 
               {/* Badges */}
               <div className="absolute top-5 left-5 flex flex-col gap-2">
@@ -331,8 +333,8 @@ function ProductDetail({ product }: { product: DemoProduct }) {
 
               <div className="flex flex-wrap items-center gap-4 pt-1">
                 {[
-                  { icon: "🚚", text: "Same-day delivery in Hyderabad" },
-                  { icon: "🌱", text: "Plants sourced with care" },
+                  { icon: "🚚", text: "Delivery across Palwal & NCR" },
+                  { icon: "🌱", text: "Handcrafted to order" },
                 ].map(({ icon, text }) => (
                   <div key={text} className="flex items-center gap-1.5 text-xs text-[#22201C]/40">
                     <span aria-hidden>{icon}</span>

@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
-  { name: "The Family Garden", price: "₹899", image: "/images/product-calathea.jpg", category: "Family Scene", slug: "monstera-deliciosa" },
-  { name: "The Couple's Nook", price: "₹799", image: "/images/product-succulent-1.jpg", category: "Couple Scene", slug: "succulent-trio-gift-set" },
-  { name: "A Day at the Park", price: "₹999", image: "/images/product-cactus-1.jpg", category: "Occasion Scene", slug: "cactus-trio" },
-  { name: "Corporate Gift Set", price: "₹1,499", image: "/images/product-gift-set.jpg", category: "Corporate", slug: "succulent-trio-gift-set" },
-  { name: "Clean & Green", price: "₹1,199", image: "/images/product-collection.jpg", category: "Cause Scene", slug: "peace-lily" },
-  { name: "Birthday Bloom", price: "₹699", image: "/images/product-succulent-2.jpg", category: "Celebration", slug: "pothos-golden-queen" },
+  { name: "The Family Picnic", price: "₹999", image: "/images/catalogue/family-picnic.png", category: "Scene Planter", slug: "family-picnic" },
+  { name: "The Couple's Nook", price: "₹949", image: "/images/catalogue/couples-nook.png", category: "Scene Planter", slug: "couples-nook" },
+  { name: "Reading Buddha", price: "₹899", image: "/images/catalogue/reading-buddha.png", category: "Spiritual", slug: "reading-buddha" },
+  { name: "The Garden Gnome", price: "₹849", image: "/images/catalogue/garden-gnome.png", category: "Scene Planter", slug: "garden-gnome" },
+  { name: "Three Wise Monks", price: "₹749", image: "/images/catalogue/three-monks.png", category: "Spiritual", slug: "three-wise-monks" },
+  { name: "Owl Always Love You", price: "₹799", image: "/images/catalogue/owl-pair.png", category: "Decor", slug: "owl-always-love-you" },
 ];
 
 export function FeaturedCollection() {
