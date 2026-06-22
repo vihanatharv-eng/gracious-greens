@@ -49,6 +49,14 @@ export function Footer() {
                 Subscribe
               </button>
             </div>
+            <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", lineHeight: 1.5, color: "rgba(255,251,235,0.35)", marginTop: "12px" }}>
+              By subscribing, you agree to receive marketing emails from us and
+              to our{" "}
+              <Link href="/privacy" style={{ color: "rgba(255,251,235,0.55)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+                Privacy Policy
+              </Link>
+              . Unsubscribe anytime.
+            </p>
           </div>
         </div>
 
