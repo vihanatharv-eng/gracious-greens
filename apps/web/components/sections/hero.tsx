@@ -76,7 +76,7 @@ export function Hero() {
         <div className="hero-product-shadow" aria-hidden="true" />
         <Image
           src="/hero-product.jpg"
-          alt="A custom Gracious Greens miniature scene planter — a blue ceramic bowl holding live plants, pebbles, and tiny figurines"
+          alt="The Couple's Nook — a custom Gracious Greens miniature scene planter in a boat-shaped ceramic bowl, with live plants, figurines, and a tiny arch"
           fill
           priority
           sizes="(max-width: 768px) 100vw, 55vw"
