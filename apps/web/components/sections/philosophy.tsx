@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -35,7 +35,15 @@ export function Philosophy() {
   const word3Ref = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  // useLayoutEffect (not useEffect) so ctx.revert() runs synchronously
+  // before React's own commit-phase DOM removal. ScrollTrigger's `pin: true`
+  // wraps sectionRef in a `.pin-spacer` div; if that wrapper is still in
+  // place when React tries to remove this section during route navigation,
+  // React's removeChild call doesn't find the node where it expects it —
+  // throwing "Node.removeChild: the node to be removed is not a child of
+  // this node". useEffect's cleanup is deferred until after commit, which
+  // is too late; useLayoutEffect's cleanup runs before it.
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
