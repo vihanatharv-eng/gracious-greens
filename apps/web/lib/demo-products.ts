@@ -19,7 +19,8 @@ export type DemoProduct = {
   basePrice: number;
   emoji: string;
   gradient: string; // fallback card background if image fails
-  image: string; // real product photo
+  image: string; // primary/default photo — used on cards, hero, carousels
+  images: string[]; // full gallery for the product detail page (image is images[0])
   category: string;
   tags: string[];
   allowsCustomNote: boolean;
@@ -48,6 +49,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🧺",
     gradient: "linear-gradient(135deg, #8B6F47 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/family-picnic.png",
+    images: [
+      "/images/catalogue/family-picnic.png",
+      "/images/catalogue/family-picnic-2.png",
+      "/images/catalogue/family-picnic-3.png",
+      "/images/catalogue/family-picnic-4.png",
+    ],
     category: "Scene Planters",
     tags: ["bestseller", "family", "custom"],
     allowsCustomNote: true,
@@ -76,6 +83,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "💑",
     gradient: "linear-gradient(135deg, #C8D9C0 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/couples-nook.png",
+    images: [
+      "/images/catalogue/couples-nook.png",
+      "/images/catalogue/couples-nook-2.png",
+      "/images/catalogue/couples-nook-3.png",
+      "/images/catalogue/couples-nook-4.png",
+    ],
     category: "Scene Planters",
     tags: ["couple", "anniversary", "custom"],
     allowsCustomNote: true,
@@ -104,6 +117,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🍄",
     gradient: "linear-gradient(135deg, #D99A7E 0%, #FEF7E4 60%, #A8BCA1 100%)",
     image: "/images/catalogue/garden-gnome.png",
+    images: [
+      "/images/catalogue/garden-gnome.png",
+      "/images/catalogue/garden-gnome-2.png",
+      "/images/catalogue/garden-gnome-3.png",
+      "/images/catalogue/garden-gnome-4.png",
+    ],
     category: "Scene Planters",
     tags: ["housewarming", "cheerful", "custom"],
     allowsCustomNote: true,
@@ -132,6 +151,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🧘",
     gradient: "linear-gradient(135deg, #2D5040 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/reading-buddha.png",
+    images: [
+      "/images/catalogue/reading-buddha.png",
+      "/images/catalogue/reading-buddha-2.png",
+      "/images/catalogue/reading-buddha-3.png",
+      "/images/catalogue/reading-buddha-4.png",
+    ],
     category: "Spiritual",
     tags: ["zen", "meditation", "premium"],
     allowsCustomNote: true,
@@ -160,6 +185,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🪷",
     gradient: "linear-gradient(135deg, #A8BCA1 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/little-buddha.png",
+    images: [
+      "/images/catalogue/little-buddha.png",
+      "/images/catalogue/little-buddha-2.png",
+      "/images/catalogue/little-buddha-3.png",
+      "/images/catalogue/little-buddha-4.png",
+    ],
     category: "Spiritual",
     tags: ["zen", "housewarming", "custom"],
     allowsCustomNote: true,
@@ -188,6 +219,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🙈",
     gradient: "linear-gradient(135deg, #FEF7E4 0%, #C8D9C0 60%, #A8BCA1 100%)",
     image: "/images/catalogue/three-monks.png",
+    images: [
+      "/images/catalogue/three-monks.png",
+      "/images/catalogue/three-monks-2.png",
+      "/images/catalogue/three-monks-3.png",
+      "/images/catalogue/three-monks-4.png",
+    ],
     category: "Spiritual",
     tags: ["prosperity", "cheerful", "custom"],
     allowsCustomNote: true,
@@ -215,6 +252,10 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🐕",
     gradient: "linear-gradient(135deg, #D4C5A9 0%, #C77B58 60%, #FEF7E4 100%)",
     image: "/images/catalogue/loyal-companions.png",
+    images: [
+      "/images/catalogue/loyal-companions.png",
+      "/images/catalogue/loyal-companions-2.png",
+    ],
     category: "Desk Planters",
     tags: ["desk", "dog-lover", "office"],
     allowsCustomNote: true,
@@ -243,6 +284,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🦉",
     gradient: "linear-gradient(135deg, #4A4642 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/mystic-owl.png",
+    images: [
+      "/images/catalogue/mystic-owl.png",
+      "/images/catalogue/mystic-owl-2.png",
+      "/images/catalogue/mystic-owl-3.png",
+      "/images/catalogue/mystic-owl-4.png",
+    ],
     category: "Decor",
     tags: ["decor", "wisdom", "evil-eye"],
     allowsCustomNote: true,
@@ -269,6 +316,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     emoji: "🦉",
     gradient: "linear-gradient(135deg, #2D5040 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/owl-pair.png",
+    images: [
+      "/images/catalogue/owl-pair.png",
+      "/images/catalogue/owl-pair-2.png",
+      "/images/catalogue/owl-pair-3.png",
+      "/images/catalogue/owl-pair-4.png",
+    ],
     category: "Decor",
     tags: ["decor", "couple", "gifting"],
     allowsCustomNote: true,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,11 +31,20 @@ import type { DemoProduct } from "@/lib/demo-products";
 
 function ProductDetail({ product }: { product: DemoProduct }) {
   const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
+  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [qty, setQty] = useState(1);
   const [note, setNote] = useState("");
   const [giftWrap, setGiftWrap] = useState(false);
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
+
+  // Reset selection state when navigating to a different product (e.g. via
+  // "You might also like") — the page component itself isn't remounted by
+  // the router, so stale indices could otherwise point past a shorter gallery.
+  useEffect(() => {
+    setSelectedVariantIdx(0);
+    setSelectedImageIdx(0);
+  }, [product.id]);
 
   const { addItem } = useCart();
   const selectedVariant = product.variants[selectedVariantIdx]!;
@@ -92,8 +101,8 @@ function ProductDetail({ product }: { product: DemoProduct }) {
               style={{ background: product.gradient }}
             >
               <Image
-                src={product.image}
-                alt={product.title}
+                src={product.images[selectedImageIdx] ?? product.image}
+                alt={`${product.title} — view ${selectedImageIdx + 1} of ${product.images.length}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -114,6 +123,36 @@ function ProductDetail({ product }: { product: DemoProduct }) {
                 )}
               </div>
             </div>
+
+            {/* Thumbnail gallery */}
+            {product.images.length > 1 && (
+              <div className="flex gap-3" role="tablist" aria-label="Product photos">
+                {product.images.map((img, idx) => (
+                  <button
+                    key={img}
+                    role="tab"
+                    aria-selected={idx === selectedImageIdx}
+                    aria-label={`View photo ${idx + 1}`}
+                    onClick={() => setSelectedImageIdx(idx)}
+                    className={cn(
+                      "relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden flex-shrink-0 transition-all",
+                      idx === selectedImageIdx
+                        ? "ring-2 ring-[#1F3A2D] ring-offset-2 ring-offset-[#FAF8F3]"
+                        : "opacity-60 hover:opacity-100"
+                    )}
+                    style={{ background: product.gradient }}
+                  >
+                    <Image
+                      src={img}
+                      alt=""
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Care info card */}
             <div className="rounded-2xl bg-[#FAF8F3] border border-[#1F3A2D]/6 p-5">
