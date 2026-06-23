@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 // TODO: add phone/WhatsApp number once available, then uncomment the
 // phone card below and the WhatsApp CTA in the personalise/contact flow.
-const PHONE: string | null = null;
+const PHONE = null as string | null;
 
 const CONTACT_CARDS = [
   {
