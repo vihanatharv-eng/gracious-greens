@@ -150,7 +150,7 @@ export function Footer() {
                 </h4>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {col.links.map((link) => (
-                    <li key={link.href} style={{ marginBottom: "10px" }}>
+                    <li key={link.label} style={{ marginBottom: "10px" }}>
                       <Link
                         href={link.href}
                         style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.6)", textDecoration: "none", transition: "color 0.3s ease" }}
