@@ -339,25 +339,3 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
-
-export const OCCASIONS = [
-  { emoji: "🎂", label: "Birthday", desc: "Something alive for another year of them" },
-  { emoji: "💑", label: "Anniversary", desc: "A gift that grows with your love" },
-  { emoji: "🏠", label: "Housewarming", desc: "Help them make a house feel like home" },
-  { emoji: "💼", label: "Corporate", desc: "Thoughtful gifting at scale" },
-  { emoji: "🎓", label: "Graduation", desc: "Celebrate a new chapter" },
-  { emoji: "💚", label: "Just Because", desc: "The best reason of all" },
-];
-
-export function getProductBySlug(slug: string): DemoProduct | undefined {
-  return DEMO_PRODUCTS.find((p) => p.slug === slug);
-}
-
-export function getProductsByCategory(category: string): DemoProduct[] {
-  if (category === "All") return DEMO_PRODUCTS;
-  return DEMO_PRODUCTS.filter((p) => p.category === category);
-}
-
-export function getBestsellers(): DemoProduct[] {
-  return DEMO_PRODUCTS.filter((p) => p.isBestseller);
-}

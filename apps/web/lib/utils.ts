@@ -14,8 +14,3 @@ export function formatPrice(amount: number): string {
     maximumFractionDigits: 0,
   }).format(amount);
 }
-
-/** Truncate text */
-export function truncate(str: string, length: number): string {
-  return str.length > length ? str.slice(0, length) + "…" : str;
-}
