@@ -5,35 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ARTICLES } from "@/lib/articles";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const articles = [
-  {
-    title: "How a Custom Scene Goes from Idea to Your Doorstep",
-    excerpt: "From the first WhatsApp message to the final figurine placement — here's exactly how we build your story, step by step.",
-    image: "/images/bg-journal-1.jpg",
-    date: "May 2026",
-    readTime: "5 min read",
-    featured: true,
-  },
-  {
-    title: "Why Miniature Scenes Make the Most Memorable Gifts",
-    excerpt: "Unlike flowers or sweets, a custom scene is something people keep, display, and talk about. Here's what makes them so special.",
-    image: "/images/bg-journal-2.jpg",
-    date: "April 2026",
-    readTime: "3 min read",
-    featured: false,
-  },
-  {
-    title: "Corporate Gifting, Reimagined",
-    excerpt: "How brands and organisations are using personalised miniature scenes to leave a lasting impression on clients and teams.",
-    image: "/images/philosophy-artisan.jpg",
-    date: "March 2026",
-    readTime: "4 min read",
-    featured: false,
-  },
-];
+const articles = ARTICLES;
 
 export function Journal() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -87,13 +63,15 @@ export function Journal() {
           style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gridTemplateRows: "repeat(2, 300px)", gap: "24px" }}
         >
           {articles.map((article, i) => (
-            <div
-              key={i}
+            <Link
+              key={article.slug}
+              href={`/journal/${article.slug}`}
               style={{
                 position: "relative",
                 borderRadius: "8px",
                 overflow: "hidden",
                 cursor: "pointer",
+                textDecoration: "none",
                 gridColumn: i === 0 ? "1 / 2" : "auto",
                 gridRow: i === 0 ? "1 / 3" : "auto",
               }}
@@ -134,7 +112,7 @@ export function Journal() {
                   {article.excerpt}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
