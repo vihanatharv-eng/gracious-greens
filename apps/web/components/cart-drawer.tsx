@@ -7,7 +7,7 @@ import { formatPrice } from "@/lib/utils";
 export function CartDrawer() {
   const { items, isOpen, close, removeItem, updateQty, subtotal, itemCount } = useCart();
 
-  const GIFT_WRAP_PRICE = 50;
+  const GIFT_WRAP_PRICE = 79; // must match the price charged on the product detail page
   const totalGiftWrap = items.filter((i) => i.personalization?.giftWrap).length * GIFT_WRAP_PRICE;
   const orderTotal = subtotal + totalGiftWrap;
 
@@ -107,7 +107,7 @@ export function CartDrawer() {
                   {/* Personalization indicator */}
                   {item.personalization?.note && (
                     <p className="text-[10px] text-[#A8BCA1] flex items-center gap-1 mb-1">
-                      ✍️ "{item.personalization.note.slice(0, 20)}…"
+                      ✍️ &ldquo;{item.personalization.note.slice(0, 20)}…&rdquo;
                     </p>
                   )}
                   {item.personalization?.giftWrap && (

@@ -5,13 +5,29 @@ import { useState } from "react";
 import Image from "next/image";
 
 const FOOTER_COLS = [
-  { title: "Shop", links: [{ label: "All Plants", href: "/shop" }, { label: "Gift Sets", href: "/shop?category=Gift+Sets" }, { label: "Desk Plants", href: "/shop?category=Desk+Plants" }, { label: "Statement Plants", href: "/shop?category=Statement+Plants" }] },
+  { title: "Shop", links: [{ label: "All Creations", href: "/shop" }, { label: "Scene Planters", href: "/shop?category=Scene+Planters" }, { label: "Spiritual", href: "/shop?category=Spiritual" }, { label: "Decor", href: "/shop?category=Decor" }] },
   { title: "Company", links: [{ label: "Our Story", href: "/about" }, { label: "Personalise", href: "/gifts/personalise" }, { label: "Corporate Gifting", href: "/corporate" }, { label: "Custom Orders", href: "/requests" }] },
   { title: "Support", links: [{ label: "Care Guides", href: "/care-guides" }, { label: "Track Order", href: "/track" }, { label: "FAQ", href: "/faq" }, { label: "Contact Us", href: "/contact" }] },
 ];
 
+// Basic RFC-5322-ish check — good enough to catch obvious typos client-side.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export function Footer() {
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+
+  // No email-capture backend (Resend/Mailchimp) is wired up yet — this just
+  // validates and gives real feedback instead of being a silent no-op.
+  // TODO: POST to a real subscribe endpoint once one exists.
+  function handleSubscribe() {
+    if (!EMAIL_RE.test(email.trim())) {
+      setStatus("error");
+      return;
+    }
+    setStatus("success");
+    setEmail("");
+  }
 
   return (
     <footer
@@ -36,12 +52,25 @@ export function Footer() {
                 type="email"
                 placeholder="Your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ flex: 1, padding: "16px 24px", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "50px", color: "#FEF7E4", fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", outline: "none" }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,251,235,0.4)"; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+                onChange={(e) => { setEmail(e.target.value); if (status !== "idle") setStatus("idle"); }}
+                onKeyDown={(e) => { if (e.key === "Enter") handleSubscribe(); }}
+                aria-invalid={status === "error"}
+                style={{
+                  flex: 1,
+                  padding: "16px 24px",
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                  border: `1px solid ${status === "error" ? "rgba(194,65,12,0.6)" : "rgba(255,255,255,0.15)"}`,
+                  borderRadius: "50px",
+                  color: "#FEF7E4",
+                  fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
+                  fontSize: "14px",
+                  outline: "none",
+                }}
+                onFocus={(e) => { if (status !== "error") e.currentTarget.style.borderColor = "rgba(255,251,235,0.4)"; }}
+                onBlur={(e) => { if (status !== "error") e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
               />
               <button
+                onClick={handleSubscribe}
                 style={{ padding: "16px 32px", backgroundColor: "#c2410c", color: "#ffffff", fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", borderRadius: "50px", border: "none", cursor: "pointer", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
                 onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 30px rgba(194,65,12,0.3)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
@@ -49,14 +78,24 @@ export function Footer() {
                 Subscribe
               </button>
             </div>
-            <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", lineHeight: 1.5, color: "rgba(255,251,235,0.35)", marginTop: "12px" }}>
-              By subscribing, you agree to receive marketing emails from us and
-              to our{" "}
-              <Link href="/privacy" style={{ color: "rgba(255,251,235,0.55)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                Privacy Policy
-              </Link>
-              . Unsubscribe anytime.
-            </p>
+            {status === "success" ? (
+              <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", color: "#A8BCA1", marginTop: "12px" }}>
+                ✓ You&apos;re on the list — welcome to Gracious Greens.
+              </p>
+            ) : status === "error" ? (
+              <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", color: "#c2410c", marginTop: "12px" }}>
+                Please enter a valid email address.
+              </p>
+            ) : (
+              <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", lineHeight: 1.5, color: "rgba(255,251,235,0.35)", marginTop: "12px" }}>
+                By subscribing, you agree to receive marketing emails from us and
+                to our{" "}
+                <Link href="/privacy" style={{ color: "rgba(255,251,235,0.55)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+                  Privacy Policy
+                </Link>
+                . Unsubscribe anytime.
+              </p>
+            )}
           </div>
         </div>
 
