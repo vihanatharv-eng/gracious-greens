@@ -336,6 +336,142 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       { id: "9a", name: "Pair", price: 899, attributes: {}, stock: 9 },
     ],
   },
+  {
+    id: "10",
+    slug: "squirrel-stash",
+    title: "The Squirrel Stash",
+    tagline: "Tiny Hoarders, Big Charm",
+    description:
+      "Two cheerful squirrels guard their acorn stash among white pebbles, beneath a trailing variegated pothos in a fluted forest-green ceramic pot — finished with a satin bow, ready to gift straight out of the box.",
+    story:
+      "A little reminder to save what matters and savour the small things. Easy to love, easy to keep — perfect for a desk, a windowsill, or anyone who could use a dose of cheer.",
+    basePrice: 799,
+    emoji: "🐿️",
+    gradient: "linear-gradient(135deg, #2D5040 0%, #A8BCA1 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/squirrel-stash.png",
+    images: [
+      "/images/catalogue/squirrel-stash.png",
+      "/images/catalogue/squirrel-stash-2.png",
+      "/images/catalogue/squirrel-stash-3.png",
+      "/images/catalogue/squirrel-stash-4.png",
+    ],
+    category: "Desk Planters",
+    tags: ["gift", "desk", "cheerful"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water when the top soil feels dry. Bright, indirect light. Pothos is nearly indestructible and thrives on a little neglect.",
+    rating: 4.8,
+    reviewCount: 6,
+    isNew: true,
+    variants: [
+      { id: "10a", name: "As Shown", price: 799, attributes: {}, stock: 8 },
+    ],
+  },
+  {
+    id: "11",
+    slug: "family-reunion",
+    title: "The Family Reunion",
+    tagline: "Three Generations, One Garden",
+    description:
+      "A father carrying his child, a grandmother at the table, a mother cradling her baby — gathered beneath an arch of glossy ZZ leaves, with yellow ducks bobbing in a tiny pond, all framed by a rainbow picket fence.",
+    story:
+      "For the families that span generations under one roof. A keepsake for a reunion, a grandparent's birthday, or anyone who carries their whole family with them, always.",
+    basePrice: 1199,
+    emoji: "👵",
+    gradient: "linear-gradient(135deg, #4A7856 0%, #A8BCA1 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/family-reunion.png",
+    images: [
+      "/images/catalogue/family-reunion.png",
+      "/images/catalogue/family-reunion-2.png",
+      "/images/catalogue/family-reunion-3.png",
+      "/images/catalogue/family-reunion-4.png",
+    ],
+    category: "Scene Planters",
+    tags: ["family", "multi-generation", "custom"],
+    allowsCustomNote: true,
+    allowsCustomImage: true,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water lightly every 1–2 weeks. Bright, indirect light. The ZZ plant is hardy and forgiving — avoid overwatering.",
+    rating: 4.9,
+    reviewCount: 5,
+    isNew: true,
+    variants: [
+      { id: "11a", name: "As Shown", price: 1199, attributes: {}, stock: 6 },
+    ],
+  },
+  {
+    id: "12",
+    slug: "cozy-corner",
+    title: "The Cozy Corner",
+    tagline: "A Little World, Just for Her",
+    description:
+      "A girl at her own little home-office desk — chair, drawers, monitor and all — tucked beneath an arching ZZ canopy, with a sleepy rabbit and two ducks paddling close by, framed by a soft blue picket fence.",
+    story:
+      "For the one who built a life she loves, one quiet corner at a time. A thoughtful gift for a new job, a new desk, or just a well-earned moment of calm.",
+    basePrice: 1249,
+    emoji: "🪴",
+    gradient: "linear-gradient(135deg, #2D5040 0%, #C8D9C0 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/cozy-corner.png",
+    images: [
+      "/images/catalogue/cozy-corner.png",
+      "/images/catalogue/cozy-corner-2.png",
+      "/images/catalogue/cozy-corner-3.png",
+      "/images/catalogue/cozy-corner-4.png",
+    ],
+    category: "Scene Planters",
+    tags: ["her", "new-job", "custom"],
+    allowsCustomNote: true,
+    allowsCustomImage: true,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water lightly every 1–2 weeks. Bright, indirect light. The ZZ plant is hardy and forgiving — avoid overwatering.",
+    rating: 4.9,
+    reviewCount: 4,
+    isNew: true,
+    variants: [
+      { id: "12a", name: "As Shown", price: 1249, attributes: {}, stock: 5 },
+    ],
+  },
+  {
+    id: "13",
+    slug: "beachside-bash",
+    title: "The Beachside Bash",
+    tagline: "A Toast to Fifty Trips Around the Sun",
+    description:
+      "A milestone birthday scene by the sea — a boy relaxing beside a bonfire, a tiny boat, a lifebuoy, cake and wine, all set between two arching plants in a sea-glass blue scalloped bowl. The '50' is sculpted right in.",
+    story:
+      "Built for the big one — a parent's, grandparent's, or mentor's milestone birthday. A keepsake that says this chapter deserved a celebration, not just a card.",
+    basePrice: 1349,
+    emoji: "🎂",
+    gradient: "linear-gradient(135deg, #6FA8A0 0%, #C8D9C0 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/beachside-bash.png",
+    images: [
+      "/images/catalogue/beachside-bash.png",
+      "/images/catalogue/beachside-bash-2.png",
+      "/images/catalogue/beachside-bash-3.png",
+      "/images/catalogue/beachside-bash-4.png",
+    ],
+    category: "Scene Planters",
+    tags: ["birthday", "milestone", "custom"],
+    allowsCustomNote: true,
+    allowsCustomImage: true,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water lightly every 1–2 weeks. Bright, indirect light. Hardy foliage that's forgiving of the occasional missed watering.",
+    rating: 5.0,
+    reviewCount: 3,
+    isNew: true,
+    variants: [
+      { id: "13a", name: "As Shown", price: 1349, attributes: {}, stock: 4 },
+    ],
+  },
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
