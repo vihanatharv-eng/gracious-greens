@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { ProductCard } from "@/components/product-card";
+import { ShopSkeleton } from "@/components/ui/skeleton";
 import { DEMO_PRODUCTS, CATEGORIES } from "@/lib/demo-products";
 import type { DemoProduct } from "@/lib/demo-products";
 
@@ -252,11 +253,7 @@ function ShopContent() {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-[#FAF8F3] flex items-center justify-center">
-        <span className="text-4xl animate-pulse">🌿</span>
-      </div>
-    }>
+    <Suspense fallback={<ShopSkeleton />}>
       <ShopContent />
     </Suspense>
   );
