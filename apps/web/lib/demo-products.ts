@@ -45,7 +45,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A whole family gathered for a picnic — tiny figures sharing tea on a bed of moss, beneath a live ZZ plant. Set in a rustic glazed bowl with a hand-finished wooden rim.",
     story:
       "This is the scene we built our brand around — the warmth of people together, captured in miniature. Gift it to a family, or to anyone who misses being surrounded by the ones they love.",
-    basePrice: 1299,
+    basePrice: 1699,
     emoji: "🧺",
     gradient: "linear-gradient(135deg, #8B6F47 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/family-picnic.png",
@@ -67,7 +67,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 18,
     isBestseller: true,
     variants: [
-      { id: "1a", name: "As Shown", price: 1299, attributes: {}, stock: 6 },
+      { id: "1a", name: "As Shown", price: 1699, attributes: {}, stock: 6 },
     ],
   },
   {
@@ -79,7 +79,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A couple seated by a tiny stream, framed by two arching ZZ plants in an elegant oval boat planter. Pebbles, moss, and miniature props complete the quiet little world.",
     story:
       "Made for anniversaries, weddings, and 'just because' — a keepsake that says the two of you built something that lasts.",
-    basePrice: 1199,
+    basePrice: 1599,
     emoji: "💑",
     gradient: "linear-gradient(135deg, #C8D9C0 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/couples-nook.png",
@@ -101,7 +101,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 14,
     isBestseller: true,
     variants: [
-      { id: "2a", name: "As Shown", price: 1199, attributes: {}, stock: 5 },
+      { id: "2a", name: "As Shown", price: 1599, attributes: {}, stock: 5 },
     ],
   },
   {
@@ -113,7 +113,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A cheerful gnome and his bunny friends nestled among pebbles, under a variegated aglaonema, in a hand-painted floral ceramic bowl.",
     story:
       "Gnomes have guarded gardens for centuries — a charm of good fortune. A bright, friendly housewarming gift that brings a smile every time it's seen.",
-    basePrice: 899,
+    basePrice: 1299,
     emoji: "🍄",
     gradient: "linear-gradient(135deg, #D99A7E 0%, #FEF7E4 60%, #A8BCA1 100%)",
     image: "/images/catalogue/garden-gnome.png",
@@ -135,7 +135,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 11,
     isNew: true,
     variants: [
-      { id: "3a", name: "As Shown", price: 899, attributes: {}, stock: 7 },
+      { id: "3a", name: "As Shown", price: 1299, attributes: {}, stock: 7 },
     ],
   },
   {
@@ -379,7 +379,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A father carrying his child, a grandmother at the table, a mother cradling her baby — gathered beneath an arch of glossy ZZ leaves, with yellow ducks bobbing in a tiny pond, all framed by a rainbow picket fence.",
     story:
       "For the families that span generations under one roof. A keepsake for a reunion, a grandparent's birthday, or anyone who carries their whole family with them, always.",
-    basePrice: 1199,
+    basePrice: 1599,
     emoji: "👵",
     gradient: "linear-gradient(135deg, #4A7856 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/family-reunion.png",
@@ -401,7 +401,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 5,
     isNew: true,
     variants: [
-      { id: "11a", name: "As Shown", price: 1199, attributes: {}, stock: 6 },
+      { id: "11a", name: "As Shown", price: 1599, attributes: {}, stock: 6 },
     ],
   },
   {
@@ -413,7 +413,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A girl at her own little home-office desk — chair, drawers, monitor and all — tucked beneath an arching ZZ canopy, with a sleepy rabbit and two ducks paddling close by, framed by a soft blue picket fence.",
     story:
       "For the one who built a life she loves, one quiet corner at a time. A thoughtful gift for a new job, a new desk, or just a well-earned moment of calm.",
-    basePrice: 1249,
+    basePrice: 1649,
     emoji: "🪴",
     gradient: "linear-gradient(135deg, #2D5040 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/cozy-corner.png",
@@ -435,7 +435,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 4,
     isNew: true,
     variants: [
-      { id: "12a", name: "As Shown", price: 1249, attributes: {}, stock: 5 },
+      { id: "12a", name: "As Shown", price: 1649, attributes: {}, stock: 5 },
     ],
   },
   {
@@ -447,7 +447,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "A milestone birthday scene by the sea — a boy relaxing beside a bonfire, a tiny boat, a lifebuoy, cake and wine, all set between two arching plants in a sea-glass blue scalloped bowl. The '50' is sculpted right in.",
     story:
       "Built for the big one — a parent's, grandparent's, or mentor's milestone birthday. A keepsake that says this chapter deserved a celebration, not just a card.",
-    basePrice: 1349,
+    basePrice: 1749,
     emoji: "🎂",
     gradient: "linear-gradient(135deg, #6FA8A0 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/beachside-bash.png",
@@ -469,7 +469,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 3,
     isNew: true,
     variants: [
-      { id: "13a", name: "As Shown", price: 1349, attributes: {}, stock: 4 },
+      { id: "13a", name: "As Shown", price: 1749, attributes: {}, stock: 4 },
     ],
   },
 ];
