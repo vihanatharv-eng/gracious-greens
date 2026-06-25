@@ -85,6 +85,22 @@ export default function TermsPage() {
         changes are posted means you accept the revised terms.
       </p>
 
+      <h2>Grievance Officer</h2>
+      <p>
+        In accordance with the Consumer Protection (E-Commerce) Rules, 2020,
+        the details of our Grievance Officer are below. We aim to acknowledge
+        every complaint within 48 hours and resolve it within 30 days of receipt.
+      </p>
+      <p>
+        <strong>Parul Jain</strong>, Grievance Officer, Gracious Greens
+        <br />
+        Email: <a href="mailto:hello@graciousgreens.in">hello@graciousgreens.in</a>
+        <br />
+        Phone / WhatsApp: <a href="https://wa.me/919518424799">+91 95184 24799</a>
+        <br />
+        Palwal, Haryana, India · Mon–Sat, 10am–7pm IST
+      </p>
+
       <h2>Contact us</h2>
       <p>
         Questions about these terms? Reach us at{" "}

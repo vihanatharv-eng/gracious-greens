@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
+import { SITE, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description: "Get in touch with Gracious Greens — questions, custom orders, or order support.",
 };
 
-// TODO: add phone/WhatsApp number once available, then uncomment the
-// phone card below and the WhatsApp CTA in the personalise/contact flow.
-const PHONE = null as string | null;
-
 const CONTACT_CARDS = [
   {
     label: "Email",
-    value: "hello@graciousgreens.in",
-    href: "mailto:hello@graciousgreens.in",
+    value: SITE.email,
+    href: `mailto:${SITE.email}`,
   },
-  ...(PHONE
-    ? [{ label: "WhatsApp / Phone", value: PHONE, href: `https://wa.me/${PHONE.replace(/\D/g, "")}` }]
-    : []),
+  {
+    label: "WhatsApp / Phone",
+    value: SITE.phoneDisplay,
+    href: whatsappLink("Hi Parul! I have a question about Gracious Greens."),
+  },
   {
     label: "Studio location",
-    value: "Palwal, Haryana, India",
+    value: SITE.location,
     href: undefined,
   },
   {
