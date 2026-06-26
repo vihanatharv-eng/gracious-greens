@@ -32,12 +32,13 @@ export function Footer() {
   return (
     <footer
       id="about"
+      className="gg-footer"
       style={{ position: "relative", width: "100%", backgroundColor: "#042f2e", padding: "120px 40px 60px 40px" }}
     >
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
 
         {/* Newsletter */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", marginBottom: "80px" }}>
+        <div className="gg-footer-newsletter" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", marginBottom: "80px" }}>
           <div>
             <h2 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: "clamp(32px, 3vw, 48px)", fontWeight: 400, lineHeight: 1.2, color: "#FEF7E4", marginBottom: "20px" }}>
               Stay rooted with us.
@@ -103,7 +104,7 @@ export function Footer() {
         <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(255,251,235,0.1)", marginBottom: "60px" }} />
 
         {/* Links */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "40px" }}>
+        <div className="gg-footer-links" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "40px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <span style={{
@@ -142,7 +143,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: "60px" }}>
+          <div className="gg-footer-cols" style={{ display: "flex", gap: "60px" }}>
             {FOOTER_COLS.map((col) => (
               <div key={col.title}>
                 <h4 style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "rgba(255,251,235,0.5)", marginBottom: "16px" }}>
@@ -185,6 +186,19 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .gg-footer { padding: 80px 24px 48px !important; }
+          .gg-footer-newsletter {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+            margin-bottom: 56px !important;
+          }
+          .gg-footer-links { flex-direction: column !important; gap: 40px !important; }
+          .gg-footer-cols { gap: 40px !important; flex-wrap: wrap !important; }
+        }
+      `}</style>
     </footer>
   );
 }

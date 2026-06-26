@@ -36,11 +36,12 @@ export function Journal() {
     <section
       id="journal"
       ref={sectionRef}
+      className="gg-journal"
       style={{ position: "relative", width: "100%", backgroundColor: "#042f2e", padding: "120px 40px" }}
     >
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+        <div className="gg-journal-head" style={{ marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div>
             <h3 style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "2px", color: "#c2410c", marginBottom: "16px" }}>
               The Journal
@@ -60,12 +61,14 @@ export function Journal() {
         {/* Grid */}
         <div
           ref={cardsRef}
+          className="gg-journal-grid"
           style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gridTemplateRows: "repeat(2, 300px)", gap: "24px" }}
         >
           {articles.map((article, i) => (
             <Link
               key={article.slug}
               href={`/journal/${article.slug}`}
+              className="gg-journal-card"
               style={{
                 position: "relative",
                 borderRadius: "8px",
@@ -96,7 +99,7 @@ export function Journal() {
                 sizes="(max-width: 768px) 100vw, 60vw"
               />
               <div className="jnl-overlay" style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,47,46,0.75), rgba(4,47,46,0.1))", transition: "background 0.4s ease" }} />
-              <div style={{ position: "absolute", bottom: 0, left: 0, padding: i === 0 ? "40px" : "28px", zIndex: 2 }}>
+              <div className="gg-journal-card-body" style={{ position: "absolute", bottom: 0, left: 0, padding: i === 0 ? "40px" : "28px", zIndex: 2 }}>
                 <div style={{ display: "flex", gap: "16px", marginBottom: "12px" }}>
                   <span style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "rgba(255,251,235,0.6)" }}>
                     {article.date}
@@ -105,7 +108,7 @@ export function Journal() {
                     {article.readTime}
                   </span>
                 </div>
-                <h4 style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: i === 0 ? "32px" : "22px", fontWeight: 400, lineHeight: 1.3, color: "#FEF7E4", marginBottom: "8px" }}>
+                <h4 className="gg-journal-card-title" style={{ fontFamily: "var(--font-playfair, 'Playfair Display', serif)", fontSize: i === 0 ? "32px" : "22px", fontWeight: 400, lineHeight: 1.3, color: "#FEF7E4", marginBottom: "8px" }}>
                   {article.title}
                 </h4>
                 <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", lineHeight: 1.6, color: "rgba(255,251,235,0.7)", maxWidth: "400px" }}>
@@ -116,6 +119,29 @@ export function Journal() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .gg-journal { padding: 72px 20px !important; }
+          .gg-journal-head {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 20px !important;
+            margin-bottom: 40px !important;
+          }
+          .gg-journal-grid {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: none !important;
+            grid-auto-rows: 340px !important;
+          }
+          .gg-journal-card {
+            grid-column: auto !important;
+            grid-row: auto !important;
+          }
+          .gg-journal-card-title { font-size: 24px !important; }
+          .gg-journal-card-body { padding: 24px !important; }
+        }
+      `}</style>
     </section>
   );
 }
