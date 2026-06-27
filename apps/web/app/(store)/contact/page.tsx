@@ -15,7 +15,9 @@ const CONTACT_CARDS = [
   {
     label: "WhatsApp / Phone",
     value: SITE.phoneDisplay,
-    href: whatsappLink("Hi Parul! I have a question about Gracious Greens."),
+    href: `tel:+${SITE.phoneE164}`,
+    secondaryLabel: "Message on WhatsApp →",
+    secondaryHref: whatsappLink("Hi Parul! I have a question about Gracious Greens."),
   },
   {
     label: "Studio location",
@@ -132,6 +134,23 @@ export default function ContactPage() {
                 >
                   {card.value}
                 </span>
+              )}
+              {"secondaryHref" in card && card.secondaryHref && (
+                <a
+                  href={card.secondaryHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    marginTop: "6px",
+                    fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
+                    fontSize: "13px",
+                    color: "#c2410c",
+                    textDecoration: "none",
+                  }}
+                >
+                  {card.secondaryLabel}
+                </a>
               )}
             </div>
           ))}

@@ -8,6 +8,8 @@ export const SITE = {
   phoneDisplay: "+91 95184 24799",
   phoneE164: "919518424799", // country code + number, digits only (for wa.me)
   location: "Palwal, Haryana, India",
+  instagramHandle: "gracious.greens",
+  instagramUrl: "https://instagram.com/gracious.greens",
 } as const;
 
 /** Build a WhatsApp deep link with a pre-filled message. */

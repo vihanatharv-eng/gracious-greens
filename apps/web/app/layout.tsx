@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Playfair_Display, Caveat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geist = Geist({
@@ -76,8 +77,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${playfair.variable} ${caveat.variable}`}>
-      <body className="min-h-screen antialiased">{children}</body>
+    <html lang="en-IN" className={`${geist.variable} ${playfair.variable} ${caveat.variable}`}>
+      <body className="min-h-screen antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

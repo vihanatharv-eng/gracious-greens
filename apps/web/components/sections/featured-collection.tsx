@@ -3,15 +3,19 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { DEMO_PRODUCTS } from "@/lib/demo-products";
+import { formatPrice } from "@/lib/utils";
 
-const products = [
-  { name: "The Family Picnic", price: "₹1,299", image: "/images/catalogue/family-picnic.png", category: "Scene Planter", slug: "family-picnic" },
-  { name: "The Couple's Nook", price: "₹1,199", image: "/images/catalogue/couples-nook.png", category: "Scene Planter", slug: "couples-nook" },
-  { name: "Reading Buddha", price: "₹999", image: "/images/catalogue/reading-buddha.png", category: "Spiritual", slug: "reading-buddha" },
-  { name: "The Garden Gnome", price: "₹899", image: "/images/catalogue/garden-gnome.png", category: "Scene Planter", slug: "garden-gnome" },
-  { name: "Three Wise Monks", price: "₹849", image: "/images/catalogue/three-monks.png", category: "Spiritual", slug: "three-wise-monks" },
-  { name: "Owl Always Love You", price: "₹899", image: "/images/catalogue/owl-pair.png", category: "Decor", slug: "owl-always-love-you" },
-];
+// Derived from DEMO_PRODUCTS (the catalogue's single source of truth) rather
+// than a hardcoded duplicate list — a hardcoded copy here previously drifted
+// out of sync with real prices after a catalogue-wide price update.
+const products = DEMO_PRODUCTS.map((p) => ({
+  name: p.title,
+  price: formatPrice(p.basePrice),
+  image: p.image,
+  category: p.category,
+  slug: p.slug,
+}));
 
 export function FeaturedCollection() {
   const scrollRef = useRef<HTMLDivElement>(null);

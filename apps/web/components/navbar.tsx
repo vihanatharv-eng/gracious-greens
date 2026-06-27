@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/cart-context";
 import Image from "next/image";
+import { SITE } from "@/lib/site";
 
 const NAV_LINKS = [
-  { href: "/shop", label: "Collections" },
+  { href: "/shop", label: "Creations" },
   { href: "/about", label: "About" },
   { href: "/gifts/personalise", label: "Personalise" },
 ];
@@ -109,6 +110,21 @@ export function Navbar() {
             {link.label}
           </Link>
         ))}
+        <a
+          href={SITE.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Gracious Greens on Instagram"
+          style={{ display: "flex", alignItems: "center", color: "#FEF7E4", opacity: 0.85, transition: "opacity 0.3s ease" }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.85"; }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
         <button
           onClick={open}
           aria-label={`Cart (${itemCount} items)`}
@@ -162,6 +178,15 @@ export function Navbar() {
             style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#FEF7E4", background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0, opacity: 0.85 }}>
             Cart ({itemCount})
           </button>
+          <a
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", color: "#FEF7E4", textDecoration: "none", opacity: 0.85 }}
+          >
+            Instagram
+          </a>
         </div>
       )}
 

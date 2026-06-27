@@ -50,11 +50,11 @@ export function Hero() {
         </p>
 
         <div className="hero-cta-row">
-          <Link href="/shop" className="hero-btn hero-btn--primary">
+          <Link href="/gifts/personalise" className="hero-btn hero-btn--primary">
             Design Your Scene
           </Link>
           <Link href="/shop" className="hero-btn hero-btn--ghost">
-            See Collections
+            See Creations
           </Link>
         </div>
 

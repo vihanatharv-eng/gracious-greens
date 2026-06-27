@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { SITE } from "@/lib/site";
 
 const FOOTER_COLS = [
-  { title: "Shop", links: [{ label: "All Creations", href: "/shop" }, { label: "Scene Planters", href: "/shop?category=Scene+Planters" }, { label: "Spiritual", href: "/shop?category=Spiritual" }, { label: "Decor", href: "/shop?category=Decor" }] },
+  { title: "Shop", links: [{ label: "All Creations", href: "/shop" }, { label: "Scene Planters", href: "/shop?category=Scene+Planters" }, { label: "Spiritual", href: "/shop?category=Spiritual" }, { label: "Desk Planters", href: "/shop?category=Desk+Planters" }, { label: "Decor", href: "/shop?category=Decor" }] },
   { title: "Company", links: [{ label: "Our Story", href: "/about" }, { label: "Personalise", href: "/gifts/personalise" }, { label: "Corporate Gifting", href: "/corporate" }, { label: "Custom Orders", href: "/gifts/personalise" }] },
-  { title: "Support", links: [{ label: "Care Guides", href: "/care-guides" }, { label: "Track Order", href: "/track" }, { label: "FAQ", href: "/faq" }, { label: "Contact Us", href: "/contact" }] },
+  { title: "Support", links: [{ label: "Care Guides", href: "/care-guides" }, { label: "Track Order", href: "/track" }, { label: "FAQ", href: "/faq" }, { label: "Contact Us", href: "/contact" }, { label: "Instagram", href: SITE.instagramUrl }] },
 ];
 
 // Basic RFC-5322-ish check — good enough to catch obvious typos client-side.
@@ -52,6 +53,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Your email"
+                aria-label="Email address"
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); if (status !== "idle") setStatus("idle"); }}
                 onKeyDown={(e) => { if (e.key === "Enter") handleSubscribe(); }}
@@ -150,18 +152,22 @@ export function Footer() {
                   {col.title}
                 </h4>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                  {col.links.map((link) => (
-                    <li key={link.label} style={{ marginBottom: "10px" }}>
-                      <Link
-                        href={link.href}
-                        style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.6)", textDecoration: "none", transition: "color 0.3s ease" }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = "#FEF7E4"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,251,235,0.6)"; }}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {col.links.map((link) => {
+                    const isExternal = link.href.startsWith("http");
+                    return (
+                      <li key={link.label} style={{ marginBottom: "10px" }}>
+                        <Link
+                          href={link.href}
+                          {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", color: "rgba(255,251,235,0.6)", textDecoration: "none", transition: "color 0.3s ease" }}
+                          onMouseEnter={(e) => { e.currentTarget.style.color = "#FEF7E4"; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,251,235,0.6)"; }}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
