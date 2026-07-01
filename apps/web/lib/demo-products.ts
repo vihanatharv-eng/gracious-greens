@@ -592,7 +592,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "/images/catalogue/four-blessings-2.png",
       "/images/catalogue/four-blessings-3.png",
     ],
-    category: "Spiritual",
+    category: "Decor",
     tags: ["zen", "decor", "set-of-4"],
     allowsCustomNote: true,
     allowsCustomImage: false,
