@@ -16,18 +16,29 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Footer() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "error" | "success" | "loading" | "unavailable">("idle");
 
-  // No email-capture backend (Resend/Mailchimp) is wired up yet — this just
-  // validates and gives real feedback instead of being a silent no-op.
-  // TODO: POST to a real subscribe endpoint once one exists.
-  function handleSubscribe() {
+  async function handleSubscribe() {
     if (!EMAIL_RE.test(email.trim())) {
       setStatus("error");
       return;
     }
-    setStatus("success");
-    setEmail("");
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("unavailable");
+      }
+    } catch {
+      setStatus("unavailable");
+    }
   }
 
   return (
@@ -45,7 +56,7 @@ export function Footer() {
               Stay rooted with us.
             </h2>
             <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "16px", lineHeight: 1.6, color: "rgba(255,251,235,0.6)", maxWidth: "400px" }}>
-              Get scene ideas, behind-the-scenes peeks at new creations, and exclusive offers.
+              Subscribe and get our free Plant Care Guide (PDF) — plus scene ideas, behind-the-scenes peeks at new creations, and early access to seasonal collections.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
@@ -74,20 +85,25 @@ export function Footer() {
               />
               <button
                 onClick={handleSubscribe}
+                disabled={status === "loading"}
                 style={{ padding: "16px 32px", backgroundColor: "#c2410c", color: "#ffffff", fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1.5px", borderRadius: "50px", border: "none", cursor: "pointer", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
                 onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 30px rgba(194,65,12,0.3)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                Subscribe
+                {status === "loading" ? "…" : "Subscribe"}
               </button>
             </div>
             {status === "success" ? (
               <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", color: "#A8BCA1", marginTop: "12px" }}>
-                ✓ You&apos;re on the list — welcome to Gracious Greens.
+                ✓ You&apos;re on the list — check your inbox for your free plant care guide.
               </p>
             ) : status === "error" ? (
               <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", color: "#c2410c", marginTop: "12px" }}>
                 Please enter a valid email address.
+              </p>
+            ) : status === "unavailable" ? (
+              <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "13px", color: "#c2410c", marginTop: "12px" }}>
+                Something went wrong — please try again in a bit, or write to us at {`hello@graciousgreens.in`}.
               </p>
             ) : (
               <p style={{ fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)", fontSize: "12px", lineHeight: 1.5, color: "rgba(255,251,235,0.35)", marginTop: "12px" }}>

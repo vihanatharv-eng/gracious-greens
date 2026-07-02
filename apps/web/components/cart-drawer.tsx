@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCart } from "@/contexts/cart-context";
 import { formatPrice } from "@/lib/utils";
 import { whatsappLink } from "@/lib/site";
+import { track } from "@vercel/analytics";
 
 export function CartDrawer() {
   const { items, isOpen, close, removeItem, updateQty, subtotal, itemCount } = useCart();
@@ -29,6 +30,9 @@ export function CartDrawer() {
       `Total: ${formatPrice(orderTotal)} (excl. shipping)`,
       "",
       "Could you confirm availability, shipping, and payment? Thank you!",
+      "",
+      // Attribution — customer completes the blank; tells us which channel converts.
+      "PS — I found you via: ",
     ].join("\n");
   }
 
@@ -215,7 +219,10 @@ export function CartDrawer() {
               href={whatsappLink(buildOrderMessage())}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={close}
+              onClick={() => {
+                track("whatsapp_order_click", { source: "cart", items: itemCount });
+                close();
+              }}
               className="flex items-center justify-center gap-2 w-full text-center py-3.5 rounded-full bg-[#1F3A2D] text-[#FAF8F3] font-semibold text-sm hover:bg-[#2D5040] active:scale-[0.98] transition-all"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden>

@@ -4,6 +4,19 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ARTICLES, getArticleBySlug } from "@/lib/articles";
 
+const BASE = process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in";
+
+// Articles store display dates like "May 2026" — convert to ISO for schema.
+const MONTHS: Record<string, string> = {
+  january: "01", february: "02", march: "03", april: "04", may: "05", june: "06",
+  july: "07", august: "08", september: "09", october: "10", november: "11", december: "12",
+};
+function toIsoDate(display: string): string {
+  const [month, year] = display.toLowerCase().split(" ");
+  const mm = (month && MONTHS[month]) || "01";
+  return `${year ?? "2026"}-${mm}-01`;
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -24,8 +37,30 @@ export default async function ArticlePage({ params }: PageProps) {
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
+  // BlogPosting structured data — article rich results + brand authorship.
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    image: `${BASE}${article.image}`,
+    url: `${BASE}/journal/${article.slug}`,
+    datePublished: toIsoDate(article.date),
+    author: { "@type": "Person", name: "Parul Jain" },
+    publisher: {
+      "@type": "Organization",
+      name: "Gracious Greens",
+      logo: { "@type": "ImageObject", url: `${BASE}/logo-mark.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/journal/${article.slug}` },
+  };
+
   return (
     <div style={{ backgroundColor: "#FEF7E4", minHeight: "100vh" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <article style={{ maxWidth: "720px", margin: "0 auto", padding: "120px 24px 120px" }}>
         {/* Back link */}
         <Link
@@ -98,6 +133,30 @@ export default async function ArticlePage({ params }: PageProps) {
             )
           )}
         </div>
+
+        {/* Related links — contextual internal linking */}
+        {article.related && article.related.length > 0 && (
+          <div style={{ marginTop: "40px", display: "flex", flexWrap: "wrap", gap: "10px" }}>
+            {article.related.map((r) => (
+              <Link
+                key={r.href + r.label}
+                href={r.href}
+                style={{
+                  fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  color: "#042f2e",
+                  textDecoration: "none",
+                  border: "1px solid rgba(4,47,46,0.2)",
+                  borderRadius: "50px",
+                  padding: "10px 18px",
+                }}
+              >
+                {r.label} →
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* CTA */}
         <div style={{ marginTop: "56px", paddingTop: "40px", borderTop: "1px solid rgba(4,47,46,0.1)", textAlign: "center" }}>

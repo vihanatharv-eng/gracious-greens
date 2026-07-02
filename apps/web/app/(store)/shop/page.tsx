@@ -16,11 +16,11 @@ const CARE_LABELS: Record<DemoProduct["careLevel"], string> = {
   expert: "Expert",
 };
 
+// "Top Rated" removed — ratings were demo data, not real reviews.
 const SORT_OPTIONS = [
   { value: "featured", label: "Featured" },
   { value: "price-asc", label: "Price: Low to High" },
   { value: "price-desc", label: "Price: High to Low" },
-  { value: "rating", label: "Top Rated" },
   { value: "newest", label: "Newest" },
 ];
 
@@ -49,9 +49,6 @@ function ShopContent() {
         break;
       case "price-desc":
         products.sort((a, b) => b.basePrice - a.basePrice);
-        break;
-      case "rating":
-        products.sort((a, b) => b.rating - a.rating);
         break;
       case "newest":
         products.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));

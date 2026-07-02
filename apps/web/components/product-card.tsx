@@ -115,25 +115,10 @@ export function ProductCard({ product, className }: ProductCardProps) {
         </h3>
         <p className="text-xs text-[#22201C]/50 mb-3">{product.tagline}</p>
 
-        {/* Rating + price row */}
+        {/* Price row — no fabricated ratings; real reviews will return here
+            once collected from actual customers. */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <div className="flex">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg
-                  key={star}
-                  width="11"
-                  height="11"
-                  viewBox="0 0 24 24"
-                  className={star <= Math.round(product.rating) ? "text-[#C77B58]" : "text-[#22201C]/20"}
-                  fill="currentColor"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
-            <span className="text-xs text-[#22201C]/40">({product.reviewCount})</span>
-          </div>
+          <span className="text-xs text-[#22201C]/40">Handcrafted to order</span>
           <span
             className="font-semibold text-[#1F3A2D] text-base"
             style={{ fontFamily: "var(--font-fraunces, Georgia, serif)" }}

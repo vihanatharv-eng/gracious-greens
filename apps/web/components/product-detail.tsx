@@ -7,6 +7,7 @@ import { DEMO_PRODUCTS } from "@/lib/demo-products";
 import type { DemoProduct } from "@/lib/demo-products";
 import { formatPrice, cn } from "@/lib/utils";
 import { whatsappLink } from "@/lib/site";
+import { track } from "@vercel/analytics";
 import { useCart } from "@/contexts/cart-context";
 import { ProductCard } from "@/components/product-card";
 
@@ -42,6 +43,8 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
     if (note.trim()) parts.push(`✍️ Note: "${note.trim()}"`);
     if (giftWrap) parts.push("🎁 Gift wrap (+₹79)");
     parts.push("", "Is this available? Thank you!");
+    // Attribution — customer completes the blank; tells us which channel converts.
+    parts.push("", "PS — I found you via: ");
     return parts.join("\n");
   }
 
@@ -157,7 +160,7 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
               <p className="text-sm text-[#22201C]/60 leading-relaxed">
                 {product.careInstructions}
               </p>
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-center justify-between gap-2">
                 <span className={cn(
                   "text-xs px-2.5 py-1 rounded-full font-medium",
                   product.careLevel === "easy" && "bg-[#A8BCA1]/30 text-[#1F3A2D]",
@@ -170,36 +173,26 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
                     ? "🌿 Moderate"
                     : "🌳 Expert"}
                 </span>
+                <Link
+                  href="/care-guides"
+                  className="text-xs font-medium text-[#1F3A2D] underline underline-offset-2 hover:text-[#2D5040] transition-colors"
+                >
+                  Full care guides →
+                </Link>
               </div>
             </div>
           </div>
 
           {/* ── Right: Details + Add to Cart ── */}
           <div className="space-y-6">
-            {/* Category + rating */}
+            {/* Category */}
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#A8BCA1]">
                 {product.category}
               </span>
-              <div className="flex items-center gap-1.5">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg
-                      key={star}
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      className={star <= Math.round(product.rating) ? "text-[#C77B58]" : "text-[#22201C]/20"}
-                      fill="currentColor"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-xs font-medium text-[#22201C]/50">
-                  {product.rating} ({product.reviewCount} reviews)
-                </span>
-              </div>
+              <span className="text-xs font-medium text-[#22201C]/50">
+                🌿 Handcrafted by Parul in Palwal
+              </span>
             </div>
 
             {/* Title + tagline */}
@@ -369,6 +362,7 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
                 href={whatsappLink(buildWhatsappMessage())}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("whatsapp_order_click", { source: "product", product: product.slug })}
                 className="flex items-center justify-center gap-2 w-full py-4 rounded-full font-semibold text-sm border-2 border-[#1F3A2D] text-[#1F3A2D] hover:bg-[#1F3A2D]/5 active:scale-[0.98] transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden>
@@ -377,17 +371,40 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
                 Order on WhatsApp
               </a>
 
-              <div className="flex flex-wrap items-center gap-4 pt-1">
+              {/* Trust bar — the four answers every gift buyer needs before ordering */}
+              <div className="grid grid-cols-2 gap-2.5 pt-2">
                 {[
-                  { icon: "🚚", text: "Delivery across Palwal & NCR" },
-                  { icon: "🌱", text: "Handcrafted to order" },
+                  { icon: "🚚", text: "Ships pan-India" },
+                  { icon: "🛡️", text: "Fragile-safe packaging" },
+                  { icon: "↩️", text: "48-hr damage replacement" },
+                  { icon: "🌱", text: "Made to order in 2–4 days" },
                 ].map(({ icon, text }) => (
-                  <div key={text} className="flex items-center gap-1.5 text-xs text-[#22201C]/40">
+                  <div
+                    key={text}
+                    className="flex items-center gap-2 text-xs text-[#22201C]/55 bg-[#FAF8F3] border border-[#1F3A2D]/6 rounded-xl px-3 py-2.5"
+                  >
                     <span aria-hidden>{icon}</span>
                     <span>{text}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Journal cross-link — internal linking for SEO + tells the craft story */}
+              <p className="text-xs text-[#22201C]/45 pt-1">
+                Curious how it&apos;s made?{" "}
+                <Link
+                  href={
+                    product.category === "Scene Planters"
+                      ? "/journal/how-a-custom-scene-is-made"
+                      : "/journal/why-miniature-scenes-make-memorable-gifts"
+                  }
+                  className="text-[#1F3A2D] font-medium underline underline-offset-2 hover:text-[#2D5040] transition-colors"
+                >
+                  {product.category === "Scene Planters"
+                    ? "How a custom scene goes from idea to doorstep →"
+                    : "Why miniature scenes make the most memorable gifts →"}
+                </Link>
+              </p>
             </div>
           </div>
         </div>

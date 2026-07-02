@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { Philosophy } from "@/components/sections/philosophy";
 import { FeaturedCollection } from "@/components/sections/featured-collection";
+import { Testimonials } from "@/components/sections/testimonials";
 import { Journal } from "@/components/sections/journal";
 import { SITE } from "@/lib/site";
 
@@ -43,6 +44,7 @@ export default function HomePage() {
       <Hero />
       <Philosophy />
       <FeaturedCollection />
+      <Testimonials />
       <Journal />
     </>
   );

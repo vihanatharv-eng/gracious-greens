@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CorporateLeadForm } from "@/components/corporate-lead-form";
 
 export const metadata: Metadata = {
   title: "Corporate Gifting",
@@ -147,24 +148,23 @@ export default function CorporatePage() {
             like included. We&apos;ll come back with concepts, pricing, and a
             delivery plan that fits your event.
           </p>
-          <a
-            href="mailto:hello@graciousgreens.in?subject=Corporate%20Gifting%20Enquiry"
+          <CorporateLeadForm />
+          <p
             style={{
-              display: "inline-block",
-              padding: "16px 40px",
-              backgroundColor: "#c2410c",
-              color: "#ffffff",
               fontFamily: "var(--font-geist-sans, 'Inter', sans-serif)",
               fontSize: "13px",
-              fontWeight: 500,
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-              borderRadius: "50px",
-              textDecoration: "none",
+              color: "rgba(255,251,235,0.45)",
+              marginTop: "24px",
             }}
           >
-            Start a Corporate Enquiry
-          </a>
+            Prefer email?{" "}
+            <a
+              href="mailto:hello@graciousgreens.in?subject=Corporate%20Gifting%20Enquiry"
+              style={{ color: "rgba(255,251,235,0.7)" }}
+            >
+              hello@graciousgreens.in
+            </a>
+          </p>
         </div>
       </section>
 

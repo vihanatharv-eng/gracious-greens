@@ -15,6 +15,8 @@ export type Article = {
   readTime: string;
   featured?: boolean;
   body: ArticleBlock[];
+  /** Contextual internal links rendered under the article body (SEO + discovery). */
+  related?: { label: string; href: string }[];
 };
 
 export const ARTICLES: Article[] = [
@@ -39,6 +41,11 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "We pack each planter snugly to protect the ceramic and the plant in transit, add an optional handwritten note on a premium card, and send it on its way across Palwal, Delhi NCR, and beyond." },
       { type: "p", text: "The result isn't a product off a shelf — it's a tiny world built around someone you care about." },
     ],
+    related: [
+      { label: "Personalise a Scene", href: "/gifts/personalise" },
+      { label: "Browse Scene Planters", href: "/shop?category=Scene+Planters" },
+      { label: "Plant Care Guides", href: "/care-guides" },
+    ],
   },
   {
     slug: "why-miniature-scenes-make-memorable-gifts",
@@ -56,6 +63,11 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "With a hardy plant like a ZZ or jade at its heart, a Gracious Greens scene needs very little to thrive. It grows slowly alongside the person who owns it, instead of fading away." },
       { type: "h2", text: "It starts conversations" },
       { type: "p", text: "Guests notice a tiny world inside a bowl. They lean in, they ask about it — and the owner gets to tell the story of who gave it and why. Few gifts keep giving like that." },
+    ],
+    related: [
+      { label: "Shop the Collection", href: "/shop" },
+      { label: "Personalise a Scene", href: "/gifts/personalise" },
+      { label: "How a Custom Scene Is Made", href: "/journal/how-a-custom-scene-is-made" },
     ],
   },
   {
@@ -75,6 +87,10 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "Thoughtful at any volume" },
       { type: "p", text: "Bulk doesn't have to mean impersonal. We can personalise within an order — a recipient's name on a card, small variations per team — so each person feels seen, even at scale." },
       { type: "p", text: "If you're planning corporate or bulk gifting, we'd love to help — reach out and we'll put together a plan." },
+    ],
+    related: [
+      { label: "Corporate Gifting — Start an Enquiry", href: "/corporate" },
+      { label: "Browse the Collection", href: "/shop" },
     ],
   },
 ];

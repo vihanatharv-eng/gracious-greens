@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!product) return { title: "Product not found" };
 
   const url = `${BASE}/shop/${product.slug}`;
-  const description = `${product.tagline}. Handcrafted miniature scene planter. ${product.basePrice ? `₹${product.basePrice}.` : ""} Made to order, delivered across Palwal & Delhi NCR.`;
+  const description = `${product.tagline}. Handcrafted miniature scene planter. ${product.basePrice ? `₹${product.basePrice}.` : ""} Made to order, shipped across India with fragile-safe packaging.`;
 
   return {
     title: product.title,
@@ -66,13 +66,9 @@ export default async function ProductPage({ params }: PageProps) {
       availability: "https://schema.org/InStock",
       itemCondition: "https://schema.org/NewCondition",
     },
-    aggregateRating: product.reviewCount > 0
-      ? {
-          "@type": "AggregateRating",
-          ratingValue: product.rating,
-          reviewCount: product.reviewCount,
-        }
-      : undefined,
+    // NOTE: no aggregateRating — the demo rating/reviewCount fields are not
+    // real customer reviews, and publishing fabricated review markup risks a
+    // Google structured-data penalty. Re-add once genuine reviews exist.
   };
 
   const breadcrumbJsonLd = {
