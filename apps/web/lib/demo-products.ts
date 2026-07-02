@@ -836,6 +836,72 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       { id: "24a", name: "As Shown", price: 499, attributes: {}, stock: 10 },
     ],
   },
+  {
+    id: "25",
+    slug: "sunny-swings-by",
+    title: "Sunny Swings By",
+    tagline: "A Little Swing, A Little Sunshine",
+    description:
+      "The same cheerful smiling planter, now on a hand-finished wooden swing suspended from twine — a trailing succulent spilling over the top. Hangs by a hook or sits on any shelf edge.",
+    story:
+      "For the windows that need a little more light, and the desks that need a little more joy. Hang it by a sunny window and watch it sway.",
+    basePrice: 449,
+    emoji: "🌞",
+    gradient: "linear-gradient(135deg, #A8BCA1 0%, #FEF7E4 60%, #D4C5A9 100%)",
+    image: "/images/catalogue/sunny-swings-by.png",
+    images: [
+      "/images/catalogue/sunny-swings-by.png",
+      "/images/catalogue/sunny-swings-by-2.png",
+      "/images/catalogue/sunny-swings-by-3.png",
+    ],
+    category: "Desk Planters",
+    tags: ["cheerful", "hanging", "whimsical"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water when the top soil feels dry. Bright, indirect light. The trailing succulent thrives on a little neglect.",
+    rating: 4.7,
+    reviewCount: 2,
+    isNew: true,
+    variants: [
+      { id: "25a", name: "As Shown", price: 449, attributes: {}, stock: 8 },
+    ],
+  },
+  {
+    id: "26",
+    slug: "bashful-blossom",
+    title: "Bashful Blossom",
+    tagline: "Shy, Sweet, and Blooming",
+    description:
+      "A blushing girl in a flower crown, eyes closed and hand at her mouth, with a lush succulent spilling out like hair. A quiet, charming little planter for a desk or windowsill.",
+    story:
+      "For the quiet ones, the gentle ones, the ones who bloom in their own time. A sweet gift for a friend, a birthday, or just because.",
+    basePrice: 299,
+    emoji: "🌸",
+    gradient: "linear-gradient(135deg, #A8BCA1 0%, #FEF7E4 60%, #C8D9C0 100%)",
+    image: "/images/catalogue/bashful-blossom.png",
+    images: [
+      "/images/catalogue/bashful-blossom.png",
+      "/images/catalogue/bashful-blossom-2.png",
+      "/images/catalogue/bashful-blossom-3.png",
+    ],
+    category: "Desk Planters",
+    tags: ["cheerful", "desk", "gift"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "Water when the top soil feels dry. Bright, indirect light. The succulent thrives on a little neglect.",
+    rating: 4.7,
+    reviewCount: 2,
+    isNew: true,
+    variants: [
+      { id: "26a", name: "As Shown", price: 299, attributes: {}, stock: 8 },
+    ],
+  },
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
