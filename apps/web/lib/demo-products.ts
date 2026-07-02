@@ -280,7 +280,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "An intricately carved owl in cream, gold, and black, with evil-eye detailing on its feathers. A standalone decor piece that guards and watches over the home.",
     story:
       "Owls symbolise wisdom; the evil-eye motif wards off negativity. A meaningful, eye-catching accent for a shelf, study, or entryway.",
-    basePrice: 549,
+    basePrice: 249,
     emoji: "🦉",
     gradient: "linear-gradient(135deg, #4A4642 0%, #A8BCA1 60%, #FEF7E4 100%)",
     image: "/images/catalogue/mystic-owl.png",
@@ -300,7 +300,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     rating: 4.8,
     reviewCount: 7,
     variants: [
-      { id: "8a", name: "Single Owl", price: 549, attributes: {}, stock: 12 },
+      { id: "8a", name: "Single Owl", price: 249, attributes: {}, stock: 12 },
     ],
   },
   {
