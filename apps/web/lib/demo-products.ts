@@ -312,7 +312,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Two ornate owls in blue, white, and silver, perched side by side on hand-finished birch logs. A charming pair that's better together.",
     story:
       "A play on words and a sweet sentiment — a gift for a partner, a best friend, or anyone you'd happily perch beside.",
-    basePrice: 899,
+    basePrice: 399,
     emoji: "🦉",
     gradient: "linear-gradient(135deg, #2D5040 0%, #C8D9C0 60%, #FEF7E4 100%)",
     image: "/images/catalogue/owl-pair.png",
@@ -333,7 +333,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     reviewCount: 10,
     isBestseller: true,
     variants: [
-      { id: "9a", name: "Pair", price: 899, attributes: {}, stock: 9 },
+      { id: "9a", name: "Pair", price: 399, attributes: {}, stock: 9 },
     ],
   },
   {
