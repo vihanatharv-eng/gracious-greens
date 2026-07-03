@@ -16,15 +16,60 @@ import { SITE } from "@/lib/site";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RESEND_API = "https://api.resend.com";
 
+// Best-effort per-IP rate limit. In-memory state is per serverless instance,
+// so this is not airtight — but each request here triggers up to 3 paid
+// Resend sends (welcome email to an arbitrary address + studio notify), so
+// even instance-local throttling meaningfully raises the cost of abusing the
+// endpoint as a spam relay or burning the monthly email quota.
+const RATE_LIMIT = 5; // requests
+const RATE_WINDOW_MS = 10 * 60 * 1000; // per 10 minutes
+const hits = new Map<string, number[]>();
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  const windowStart = now - RATE_WINDOW_MS;
+  const recent = (hits.get(ip) ?? []).filter((t) => t > windowStart);
+  recent.push(now);
+  hits.set(ip, recent);
+  // Opportunistic cleanup so the map can't grow unbounded
+  if (hits.size > 1000) {
+    for (const [k, v] of hits) {
+      if (v.every((t) => t <= windowStart)) hits.delete(k);
+    }
+  }
+  return recent.length > RATE_LIMIT;
+}
+
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (rateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests — please try again later." },
+      { status: 429 },
+    );
+  }
+
   let email: unknown;
+  let honeypot: unknown;
   try {
-    ({ email } = await request.json());
+    const body = await request.json();
+    email = body.email;
+    honeypot = body.website; // hidden field humans never fill
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
   }
 
-  if (typeof email !== "string" || !EMAIL_RE.test(email.trim())) {
+  // Bots that auto-fill every field get a fake success and no emails.
+  if (typeof honeypot === "string" && honeypot.length > 0) {
+    return NextResponse.json({ ok: true });
+  }
+
+  if (
+    typeof email !== "string" ||
+    email.length > 254 ||
+    !EMAIL_RE.test(email.trim())
+  ) {
     return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
   }
   const subscriber = email.trim().toLowerCase();

@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -59,7 +60,7 @@ export default async function ArticlePage({ params }: PageProps) {
     <div style={{ backgroundColor: "#FEF7E4", minHeight: "100vh" }}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(blogPostingJsonLd) }}
       />
       <article style={{ maxWidth: "720px", margin: "0 auto", padding: "120px 24px 120px" }}>
         {/* Back link */}

@@ -16,6 +16,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  // Honeypot — humans never see or fill this; bots auto-filling forms do.
+  const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<"idle" | "error" | "success" | "loading" | "unavailable">("idle");
 
   async function handleSubscribe() {
@@ -28,7 +30,7 @@ export function Footer() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({ email: email.trim(), website }),
       });
       if (res.ok) {
         setStatus("success");
@@ -60,6 +62,17 @@ export function Footer() {
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+            {/* Honeypot field — hidden from real users, catches naive bots */}
+            <input
+              type="text"
+              name="website"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+            />
             <div style={{ display: "flex", gap: "12px" }}>
               <input
                 type="email"

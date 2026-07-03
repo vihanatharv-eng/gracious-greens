@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import { Hero } from "@/components/sections/hero";
 import { Philosophy } from "@/components/sections/philosophy";
 import { FeaturedCollection } from "@/components/sections/featured-collection";
@@ -39,7 +40,7 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
       />
       <Hero />
       <Philosophy />

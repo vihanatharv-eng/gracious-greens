@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal-page";
 
@@ -129,7 +130,7 @@ export default function FaqPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
       />
       <LegalPage eyebrow="Help" title="Frequently Asked Questions">
         {FAQS.map(({ q, jsx }) => (
