@@ -1,24 +1,32 @@
 # Corporate Gifting Playbook — Connect → Pitch → Close
 
-Corporate = highest AOV channel (30–100x a retail order). One mid-size Diwali order (₹50k–₹2L) can exceed a month of retail. This is the end-to-end system.
+Corporate = highest AOV channel (30–100x a retail order). This is the end-to-end system.
+
+**Strategy mode (decided 2026-07-03): validation-first.** GST registration is deferred until demand is proven. We target the *informal* end of corporate — proprietors and small teams who pay without needing GST invoices — and keep deals under ~₹20–25k (the line above which finance departments ask for a GSTIN). Validation goal for the Diwali cycle: **close 3–5 informal corporate orders of ₹10–20k each.** If that lands, GST becomes a growth investment backed by evidence.
+
+**GST triggers — register (takes 1–2 weeks) when any of these fires:**
+- A deal >₹25k stalls specifically on "we need a GST invoice"
+- We decide to list on Amazon/Flipkart or build the Razorpay checkout
+- Monthly revenue consistently crosses ~₹1.5–2L
 
 ## The window (act on this)
 
 Indian corporate gifting is ~60–70% Diwali-driven. Companies finalize vendors **August–early September**. Outreach must run July–August; by mid-September budgets are committed. Secondary windows: New Year (Dec), Women's Day (Mar), work anniversaries/onboarding kits (year-round — smaller but recurring).
 
-## Who to target (ranked by fit)
+## Who to target (ranked by fit — validation-first ordering)
 
-1. **20–200 person companies in Gurugram/Delhi NCR** — big enough to have gifting budgets (₹500–1,500/head), small enough that the founder/HR head decides fast, close enough for Parul to visit with samples. Decision maker: HR manager, admin head, or founder's EA.
-2. **CA firms, law firms, boutique consultancies** — gift clients (not employees) every Diwali; value "not another dry-fruit box" differentiation; order 25–100 pieces.
-3. **Real-estate brokers & interior designers** — housewarming gifts for clients are literally our core product. Recurring, year-round, not Diwali-dependent.
-4. **Wedding/event planners** — return gifts + welcome hampers. One planner = repeat bulk orders.
-5. **Schools/coaching institutes** — Teacher's Day (Sep 5) and farewell gifting; price-sensitive but high volume (Four Blessings/Story Time Circle tier).
-6. **Hotels/cafes/salons in NCR** — decor + retail placement hybrid (consignment conversations can start as gifting pitches).
+1. **Real-estate brokers & interior designers (NCR)** — housewarming gifts for clients are literally our core product. Proprietors themselves: no GST friction, recurring year-round, not Diwali-dependent. Best-fit segment, period.
+2. **Wedding/event planners** — return gifts + welcome hampers. Proprietor-run, one planner = repeat bulk orders, rarely asks for GST invoices.
+3. **Small startups & teams (10–50 people)** — founder pays from own card, one decision-maker, closes in days. Keep the pitch at ₹10–20k total order size.
+4. **The office organizer** — an individual colleague collecting budget for the team's Diwali gifts. Technically retail, effectively a 20-piece corporate order. Zero paperwork.
+5. **CA firms, boutique consultancies** — gift clients every Diwali; small proprietor firms often fine without GST invoice; larger ones become a GST trigger (see above).
+6. **Schools/coaching institutes** — Teacher's Day (Sep 5) and farewell gifting; price-sensitive but high volume (Four Blessings/Story Time Circle tier).
+7. **[Deferred until GST] 100+ person companies with HR/procurement** — the biggest budgets, but finance departments require a GSTIN to onboard vendors. Revisit when a trigger fires.
 
 ## How to connect (zero/near-zero budget, ranked)
 
 1. **Warm circle first (week 1).** List everyone Parul & Vihan know who works at a company: friends, relatives, past customers, society WhatsApp groups. Message: "we're taking a small number of corporate Diwali orders this year — does your office do Diwali gifting? Who picks the vendor?" A warm intro to the admin/HR person converts 10x better than cold anything.
-2. **LinkedIn (Parul's personal profile, not a company page).** 2 posts/week: build videos, behind-the-scenes, "what 50 handmade planters for a client look like." Then targeted connection requests: search "HR manager" / "admin manager" + Gurugram/Delhi, connect with a 1-line note (template below). 20 requests/day, no pitch in the request itself.
+2. **LinkedIn (Parul's personal profile, not a company page).** 2 posts/week: build videos, behind-the-scenes, "what 50 handmade planters for a client look like." Then targeted connection requests: search "founder" / "interior designer" / "event planner" / "real estate consultant" + Gurugram/Delhi/NCR, connect with a 1-line note (template below). 20 requests/day, no pitch in the request itself.
 3. **IndiaMART listing** (we already appear there from the old listing) — refresh it with corporate gifting keywords; inbound B2B leads are literally what IndiaMART is for. Free tier first.
 4. **Past + current customers.** Every retail buyer who works at a company is a Trojan horse: add one line to the post-purchase WhatsApp — "we also do corporate gifting — if your office plans Diwali gifts, we'd love an intro."
 5. **Local business networks:** Faridabad/Gurugram chamber events, BNI visitor passes, society Diwali melas — Parul + a table of samples closes local deals better than any email.
@@ -55,15 +63,15 @@ Bulk discount ladder (guideline): 10% at 25+, 15% at 50+, 20% at 100+ — protec
 6. **Follow-up cadence:** day 2, day 5, day 10 — then park to a "festive reminder" list. Most corporate deals close on follow-up #2–3, not the pitch.
 7. **After delivery:** photo of the full order before dispatch (trust + reuse as content), ask for a Google review from the company, and a LinkedIn tag. Add to repeat-cycle list (Diwali → New Year → Women's Day).
 
-**⚠️ Structural blocker to resolve: GST registration.** Most companies need a GST invoice to book the expense/claim input credit. Without GSTIN we lose mid/large deals at the finance-approval step. Talk to a CA this month — this matters more for corporate than anything else on this list.
+**On GST:** deferred by decision (see Strategy mode at top). If a buyer asks for a GST invoice, don't bluff — say "we're a small handmade studio and don't bill with GST yet; if it's essential for this order, we can sort it with a couple of weeks' lead time." That answer keeps the deal alive and doubles as our registration trigger.
 
 ## Templates
 
 **Warm-circle WhatsApp:**
 > Hey ___! Quick one — does your office do Diwali gifting for the team or clients? Parul's taking a limited number of corporate orders this year (handmade mini plant scenes, branded with the company logo). If there's someone who decides this, would love an intro 🌿
 
-**LinkedIn connection note (HR/admin):**
-> Hi ___, I run Gracious Greens — we make handmade miniature plant scenes companies in NCR use for Diwali & client gifting. Not pitching, just connecting with people who think about employee experience. 🌿
+**LinkedIn connection note (founders/designers/planners):**
+> Hi ___, I run Gracious Greens — we make handmade miniature plant scenes that founders, designers, and planners in NCR use for client & team gifting. Not pitching, just connecting with people whose clients deserve better than a dry-fruit box. 🌿
 
 **LinkedIn DM after acceptance (day 2–3):**
 > Thanks for connecting! One-liner on us: handmade desk plant scenes, branded with your logo, ₹299–₹1,500/head, made in Palwal, delivered pan-India. If [Company]'s Diwali gifting isn't locked yet, happy to send a sample piece to your office. Worth a look?
@@ -88,4 +96,4 @@ Bulk discount ladder (guideline): 10% at 25+, 15% at 50+, 20% at 100+ — protec
 
 ## Metrics
 
-Leads contacted / replies / samples sent / quotes / closed (₹). Target for the Diwali cycle: **30 qualified conversations → 8 samples → 3 closed orders.** One ₹75k order pays for the entire year's tooling.
+Leads contacted / replies / samples sent / quotes / closed (₹). Target for the Diwali cycle: **30 qualified conversations → 8 samples → 3–5 closed orders of ₹10–20k each.** That's the validation bar: hit it and the segment is proven — then GST registration (and the bigger HR/procurement deals it unlocks) becomes an evidence-backed next step instead of a leap of faith.
