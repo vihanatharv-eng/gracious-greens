@@ -66,6 +66,33 @@ export default async function ProductPage({ params }: PageProps) {
       price: product.basePrice,
       availability: "https://schema.org/InStock",
       itemCondition: "https://schema.org/NewCondition",
+      // Matches the cart's free-shipping-over-₹999 nudge and the
+      // 2-4 day assembly / 1-7 day transit windows on /shipping.
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: product.basePrice >= 999 ? "0" : "99",
+          currency: "INR",
+        },
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "IN" },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 4, unitCode: "DAY" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 7, unitCode: "DAY" },
+        },
+      },
+      // Matches /shipping: no change-of-mind returns, but a 48hr window for
+      // damaged/defective items (free replacement or refund).
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 2,
+        applicableCountry: "IN",
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+        refundType: "https://schema.org/FullRefund",
+      },
     },
     // NOTE: no aggregateRating — the demo rating/reviewCount fields are not
     // real customer reviews, and publishing fabricated review markup risks a
