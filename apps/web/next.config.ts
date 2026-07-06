@@ -29,9 +29,6 @@ export default function config(phase: string): NextConfig {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
 
   return {
-    // Compile workspace packages that export TypeScript source
-    transpilePackages: ["@gg/ui"],
-
     images: {
       remotePatterns: [
         { protocol: "https", hostname: "**.r2.cloudflarestorage.com" },
@@ -39,6 +36,11 @@ export default function config(phase: string): NextConfig {
         { protocol: "https", hostname: "cdn.graciousgreens.in" },
       ],
       formats: ["image/avif", "image/webp"],
+      // Trimmed from Next's 8-entry defaults — this site's layouts only ever
+      // need a mobile, tablet/card, and full-bleed desktop size, so the
+      // extra in-between variants were pure image-optimizer overhead.
+      deviceSizes: [640, 1080, 1920],
+      imageSizes: [96, 384],
     },
 
     // Security headers
