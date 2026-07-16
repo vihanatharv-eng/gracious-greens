@@ -2,6 +2,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DEMO_PRODUCTS } from "@/lib/demo-products";
+import { TESTIMONIALS } from "@/lib/testimonials";
 import { ProductDetail } from "@/components/product-detail";
 
 const BASE = process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in";
@@ -50,6 +51,33 @@ export default async function ProductPage({ params }: PageProps) {
 
   const url = `${BASE}/shop/${product.slug}`;
 
+  // Only genuine, explicitly-rated testimonials for this exact product feed
+  // the schema below — never fabricated, so a product simply has no
+  // aggregateRating/review markup until a real one exists for it.
+  const ratedTestimonials = TESTIMONIALS.filter(
+    (t) => t.productSlug === product.slug && t.rating !== undefined,
+  );
+  const aggregateRating =
+    ratedTestimonials.length > 0
+      ? {
+          "@type": "AggregateRating" as const,
+          ratingValue: (
+            ratedTestimonials.reduce((sum, t) => sum + (t.rating ?? 0), 0) /
+            ratedTestimonials.length
+          ).toFixed(1),
+          reviewCount: ratedTestimonials.length,
+        }
+      : undefined;
+  const reviews =
+    ratedTestimonials.length > 0
+      ? ratedTestimonials.map((t) => ({
+          "@type": "Review" as const,
+          author: { "@type": "Person" as const, name: t.name },
+          reviewRating: { "@type": "Rating" as const, ratingValue: t.rating },
+          reviewBody: t.quote,
+        }))
+      : undefined;
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -94,9 +122,10 @@ export default async function ProductPage({ params }: PageProps) {
         refundType: "https://schema.org/FullRefund",
       },
     },
-    // NOTE: no aggregateRating — the demo rating/reviewCount fields are not
-    // real customer reviews, and publishing fabricated review markup risks a
-    // Google structured-data penalty. Re-add once genuine reviews exist.
+    // Populated only from real, rated testimonials in lib/testimonials.ts —
+    // never fabricated, since fake review markup risks a Google penalty.
+    ...(aggregateRating && { aggregateRating }),
+    ...(reviews && { review: reviews }),
   };
 
   const breadcrumbJsonLd = {

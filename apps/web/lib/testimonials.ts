@@ -17,14 +17,19 @@ export type Testimonial = {
   productSlug?: string;
   /** Optional customer photo, e.g. "/images/testimonials/anita-family-picnic.jpg" */
   photo?: string;
+  /**
+   * 1-5 star rating, ONLY if the customer actually gave one. Powers the
+   * Product page's review/aggregateRating schema — a product only gets
+   * that markup once it has a real rated testimonial here.
+   */
+  rating?: 1 | 2 | 3 | 4 | 5;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
-  // Example (delete once real ones are in):
-  // {
-  //   quote: "The little family under the plant looks exactly like us. My mother cried.",
-  //   name: "Anita S.",
-  //   context: "Delhi",
-  //   productSlug: "family-picnic",
-  // },
+  {
+    quote:
+      "Thanks Parul Ji for creating such beauties for the anniversary of my parents and uncle and aunty. This was a perfect gift and everyone loved it. Will order more shortly.",
+    name: "Ginny Karol",
+    context: "Custom anniversary gift, for her parents & uncle-aunty",
+  },
 ];
