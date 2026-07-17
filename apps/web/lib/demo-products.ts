@@ -1498,6 +1498,39 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       { id: "44a", name: "As Shown", price: 999, attributes: {}, stock: 6 },
     ],
   },
+  {
+    id: "45",
+    slug: "teacup-pups",
+    title: "The Teacup Pups",
+    tagline: "Four Little Pups, One Big Tea Party",
+    description:
+      "A set of four hand-painted puppy figurines — pug, cocker spaniel, Labrador, and Cavalier King Charles — each curled up inside its own little teacup.",
+    story:
+      "For the dog lover, the tea lover, or anyone whose shelf could use a little more joy. A sweet gift for a birthday or just because.",
+    basePrice: 1599,
+    emoji: "🐶",
+    gradient: "linear-gradient(135deg, #D99A7E 0%, #FEF7E4 60%, #A8BCA1 100%)",
+    image: "/images/catalogue/teacup-pups.jpg",
+    images: [
+      "/images/catalogue/teacup-pups.jpg",
+      "/images/catalogue/teacup-pups-2.jpg",
+      "/images/catalogue/teacup-pups-3.jpg",
+    ],
+    category: "Decor",
+    tags: ["decor", "dog-lover", "gift"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "No plant care needed — a resin decor set. Dust gently with a dry, soft cloth.",
+    rating: 4.8,
+    reviewCount: 1,
+    isNew: true,
+    variants: [
+      { id: "45a", name: "Set of 4", price: 1599, attributes: {}, stock: 6 },
+    ],
+  },
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
