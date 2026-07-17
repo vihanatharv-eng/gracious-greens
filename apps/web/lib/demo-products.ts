@@ -1466,6 +1466,38 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       { id: "43a", name: "Set of 2", price: 1699, attributes: {}, stock: 6 },
     ],
   },
+  {
+    id: "44",
+    slug: "home-tweet-home",
+    title: "Home Tweet Home",
+    tagline: "Where the Birds Have Settled In",
+    description:
+      "A hand-finished resin 'HOME' sculpture, four little birds perched along the leafy lettering, set on a textured stone-effect base. A warm little statement for any shelf or entryway.",
+    story:
+      "For the new address, the housewarming, or a home that just deserves to say so out loud.",
+    basePrice: 999,
+    emoji: "🏡",
+    gradient: "linear-gradient(135deg, #4A7856 0%, #A8BCA1 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/home-tweet-home.jpg",
+    images: [
+      "/images/catalogue/home-tweet-home.jpg",
+      "/images/catalogue/home-tweet-home-2.jpg",
+    ],
+    category: "Decor",
+    tags: ["decor", "housewarming", "birds"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "No plant care needed — a resin decor piece. Dust gently with a dry, soft cloth.",
+    rating: 4.7,
+    reviewCount: 1,
+    isNew: true,
+    variants: [
+      { id: "44a", name: "As Shown", price: 999, attributes: {}, stock: 6 },
+    ],
+  },
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
