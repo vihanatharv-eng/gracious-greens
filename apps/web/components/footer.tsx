@@ -84,6 +84,10 @@ export function Footer() {
                 aria-invalid={status === "error"}
                 style={{
                   flex: 1,
+                  // Inputs carry an intrinsic min-content width (~230px here). Without
+                  // this, flex's default `min-width: auto` refuses to shrink past it and
+                  // the row forces the whole page wider than a phone screen.
+                  minWidth: 0,
                   padding: "16px 24px",
                   backgroundColor: "rgba(255,255,255,0.05)",
                   border: `1px solid ${status === "error" ? "rgba(194,65,12,0.6)" : "rgba(255,255,255,0.15)"}`,
@@ -223,6 +227,10 @@ export function Footer() {
       </div>
 
       <style>{`
+        /* Grid/flex children default to min-width:auto, which lets wide content
+           (the email input + Subscribe button row) push the page wider than the
+           viewport. Allow them to shrink instead. */
+        .gg-footer-newsletter > div { min-width: 0; }
         @media (max-width: 768px) {
           .gg-footer { padding: 80px 24px 48px !important; }
           .gg-footer-newsletter {

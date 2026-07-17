@@ -46,8 +46,10 @@ export function ShopSkeleton() {
       <div className="bg-[#FAF8F3] border-b border-[#1F3A2D]/5 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Skeleton className="h-3 w-16 mb-3" />
-          <Skeleton className="h-9 w-64 mb-3" />
-          <Skeleton className="h-4 w-80" />
+          <Skeleton className="h-9 w-full max-w-64 mb-3" />
+          {/* max-w-xs (20rem) keeps the original width on wide screens, but a
+              fixed w-80 overflowed 320px phones once the px-4 padding was added. */}
+          <Skeleton className="h-4 w-full max-w-xs" />
         </div>
       </div>
 
