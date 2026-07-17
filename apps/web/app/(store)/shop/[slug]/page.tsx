@@ -15,6 +15,14 @@ export function generateStaticParams() {
   return DEMO_PRODUCTS.map((p) => ({ slug: p.slug }));
 }
 
+// The catalogue is a static array, so the slugs above are the only valid ones.
+// Without this, an unknown slug is rendered on demand — and because this route
+// has a loading.tsx, Next starts streaming (committing HTTP 200) before
+// notFound() runs, so bad URLs returned 200 with the not-found UI. That soft-404
+// let search engines index unlimited junk URLs. Rejecting unknown params here
+// returns a real 404 before any rendering begins.
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = DEMO_PRODUCTS.find((p) => p.slug === slug);
