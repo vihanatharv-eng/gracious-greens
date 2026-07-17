@@ -1401,6 +1401,71 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       { id: "41a", name: "As Shown", price: 849, attributes: {}, stock: 6 },
     ],
   },
+  {
+    id: "42",
+    slug: "golden-antler-pair",
+    title: "The Golden Antler Pair",
+    tagline: "Grace, Caught Mid-Leap",
+    description:
+      "A pair of ceramic deer in gleaming gold-tipped antlers — one at rest in a perfect round frame, one leaping through an open oval. A quiet study in elegance for any shelf or console.",
+    story:
+      "For the home that loves a touch of quiet luxury — a housewarming, an anniversary, or a shelf that's been waiting for something special.",
+    basePrice: 1799,
+    emoji: "🦌",
+    gradient: "linear-gradient(135deg, #A8BCA1 0%, #FEF7E4 60%, #6FA8A0 100%)",
+    image: "/images/catalogue/golden-antler-pair.jpg",
+    images: [
+      "/images/catalogue/golden-antler-pair.jpg",
+      "/images/catalogue/golden-antler-pair-2.jpg",
+      "/images/catalogue/golden-antler-pair-3.jpg",
+    ],
+    category: "Decor",
+    tags: ["decor", "ceramic", "housewarming"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "No plant care needed — a ceramic decor set. Dust gently with a dry cloth; avoid abrasive cleaners on the gold detailing.",
+    rating: 4.8,
+    reviewCount: 1,
+    isNew: true,
+    variants: [
+      { id: "42a", name: "Set of 2", price: 1799, attributes: {}, stock: 6 },
+    ],
+  },
+  {
+    id: "43",
+    slug: "royal-elephant-pair",
+    title: "The Royal Elephant Pair",
+    tagline: "Strength, Dressed in Gold",
+    description:
+      "A duo of resin elephants in regal gold mirror-work saddles, trunks raised high — a traditional symbol of good luck and prosperity, in two sizes.",
+    story:
+      "A blessing for a new home, a new business, or someone who could use a little extra fortune — trunks up, always.",
+    basePrice: 1699,
+    emoji: "🐘",
+    gradient: "linear-gradient(135deg, #2D2A26 0%, #D99A7E 60%, #FEF7E4 100%)",
+    image: "/images/catalogue/royal-elephant-pair.jpg",
+    images: [
+      "/images/catalogue/royal-elephant-pair.jpg",
+      "/images/catalogue/royal-elephant-pair-2.jpg",
+    ],
+    category: "Decor",
+    tags: ["decor", "prosperity", "housewarming"],
+    allowsCustomNote: true,
+    allowsCustomImage: false,
+    allowsEngraving: false,
+    careLevel: "easy",
+    careInstructions:
+      "No plant care needed — a resin decor set. Dust gently with a dry, soft cloth.",
+    rating: 4.8,
+    reviewCount: 1,
+    isNew: true,
+    variants: [
+      { id: "43a", name: "Set of 2", price: 1699, attributes: {}, stock: 6 },
+    ],
+  },
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
