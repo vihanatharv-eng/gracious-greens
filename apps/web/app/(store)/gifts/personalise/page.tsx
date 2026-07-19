@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Personalise a Scene",
   description:
     "Tell us your story and we'll build it in miniature — a fully custom scene planter made to order, by Gracious Greens.",
+  alternates: { canonical: "https://graciousgreens.in/gifts/personalise" },
 };
 
 const STEPS = [

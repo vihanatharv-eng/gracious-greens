@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { safeJsonLd } from "@/lib/json-ld";
 import { Hero } from "@/components/sections/hero";
 import { Philosophy } from "@/components/sections/philosophy";
@@ -7,6 +8,14 @@ import { Journal } from "@/components/sections/journal";
 import { SITE } from "@/lib/site";
 
 const BASE = process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in";
+
+// Self-canonical. Title/description are inherited from the root layout; this
+// only pins the canonical URL so tracking-param variants of the homepage
+// (e.g. the UTM-tagged link in the Instagram bio) consolidate here rather
+// than being treated as separate URLs.
+export const metadata: Metadata = {
+  alternates: { canonical: BASE },
+};
 
 // Organization structured data — helps Google associate the "Gracious
 // Greens" brand name with this exact domain for branded searches (knowledge

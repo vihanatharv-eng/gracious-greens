@@ -4,6 +4,7 @@ import { SITE, whatsappLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description: "Get in touch with Gracious Greens — questions, custom orders, or order support.",
+  alternates: { canonical: "https://graciousgreens.in/contact" },
 };
 
 const CONTACT_CARDS = [

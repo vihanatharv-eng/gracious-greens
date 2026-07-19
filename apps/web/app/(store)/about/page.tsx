@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Our Story",
   description:
     "Gracious Greens is a Palwal-based studio handcrafting custom miniature scene planters — tiny worlds built around your story, by Parul Jain.",
+  alternates: { canonical: "https://graciousgreens.in/about" },
 };
 
 const VALUES = [

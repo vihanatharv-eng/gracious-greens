@@ -4,6 +4,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Shipping & Refund Policy",
   description: "Delivery areas, timelines, and our policy on cancellations, damage, and refunds.",
+  alternates: { canonical: "https://graciousgreens.in/shipping" },
 };
 
 export default function ShippingPage() {

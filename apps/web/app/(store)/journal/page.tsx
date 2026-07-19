@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "The Journal",
   description:
     "Ideas, inspiration, and behind-the-scenes stories from the Gracious Greens studio.",
+  alternates: { canonical: "https://graciousgreens.in/journal" },
 };
 
 export default function JournalPage() {

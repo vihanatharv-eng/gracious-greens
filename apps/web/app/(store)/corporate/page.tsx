@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Corporate Gifting",
   description:
     "Memorable, handcrafted corporate gifts — personalised miniature scene planters for clients, teams, and events, at any volume.",
+  alternates: { canonical: "https://graciousgreens.in/corporate" },
 };
 
 const REASONS = [

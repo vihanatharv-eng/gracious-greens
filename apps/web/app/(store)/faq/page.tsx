@@ -5,6 +5,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Answers to common questions about Gracious Greens — orders, customisation, plant care, shipping, and payments.",
+  alternates: { canonical: "https://graciousgreens.in/faq" },
 };
 
 // Single source for both the rendered page and the FAQPage JSON-LD.

@@ -30,7 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return { title: "Article" };
-  return { title: article.title, description: article.excerpt };
+  return {
+    title: article.title,
+    description: article.excerpt,
+    alternates: { canonical: `https://graciousgreens.in/journal/${article.slug}` },
+  };
 }
 
 export default async function ArticlePage({ params }: PageProps) {

@@ -4,6 +4,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "The terms that govern your use of graciousgreens.in and orders placed with Gracious Greens.",
+  alternates: { canonical: "https://graciousgreens.in/terms" },
 };
 
 export default function TermsPage() {

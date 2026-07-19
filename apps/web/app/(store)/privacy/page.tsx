@@ -4,6 +4,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Gracious Greens collects, uses, and protects your personal information.",
+  alternates: { canonical: "https://graciousgreens.in/privacy" },
 };
 
 export default function PrivacyPage() {

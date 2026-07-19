@@ -4,6 +4,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Track Your Order",
   description: "How to check on the status of your Gracious Greens order.",
+  alternates: { canonical: "https://graciousgreens.in/track" },
 };
 
 export default function TrackPage() {
