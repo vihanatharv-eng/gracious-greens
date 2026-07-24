@@ -15,13 +15,16 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "form-action 'self'",
   // Razorpay (later): add https://checkout.razorpay.com to script-src
-  "script-src 'self' 'unsafe-inline'",
+  // Google tag (gtag.js) for GA4/Ads conversion tracking, added 2026-07-22.
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.supabase.co https://*.r2.cloudflarestorage.com https://cdn.graciousgreens.in",
+  "img-src 'self' data: blob: https://*.supabase.co https://*.r2.cloudflarestorage.com https://cdn.graciousgreens.in https://www.googletagmanager.com",
   "font-src 'self' data:",
   // Razorpay (later): add https://*.razorpay.com to connect-src,
   // and a "frame-src https://api.razorpay.com https://checkout.razorpay.com"
-  "connect-src 'self'",
+  // google-analytics.com carries the actual gtag hit; googletagmanager.com is the
+  // config fetch gtag.js makes on load.
+  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
   "upgrade-insecure-requests",
 ].join("; ");
 

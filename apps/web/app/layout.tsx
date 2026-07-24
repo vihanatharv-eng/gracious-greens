@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Playfair_Display, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
+
+const GOOGLE_TAG_ID = "GT-MQBL63XB";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -81,6 +84,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen antialiased">
         {children}
         <Analytics />
+        {/* Google tag (gtag.js) — next/script afterInteractive is the Next.js-
+            documented pattern for this: loads after hydration so it never
+            blocks the page, while still firing early enough to capture the
+            pageview. See next.config.ts for the matching CSP allowances. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_TAG_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
