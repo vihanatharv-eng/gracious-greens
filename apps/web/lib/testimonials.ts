@@ -32,4 +32,16 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Ginny Karol",
     context: "Custom anniversary gift, for her parents & uncle-aunty",
   },
+  {
+    quote:
+      "Thank you so much mam... The pot looked beautiful to all and everyone appreciated it.",
+    name: "Verified Customer",
+    context: "WhatsApp customer feedback",
+  },
+  {
+    quote:
+      "Thank you so much! I just want to thank you for beautifully converting my thoughts into the form of a beautiful planter. The birthday person was beyond thrilled with it. Your creativity is next level 🌱",
+    name: "Verified Customer",
+    context: "Custom birthday gift, via WhatsApp",
+  },
 ];
