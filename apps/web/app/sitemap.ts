@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/about",
       "/corporate",
       "/gifts/personalise",
+      "/gifts/diwali",
       "/journal",
       "/faq",
       "/care-guides",

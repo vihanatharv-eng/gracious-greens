@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 
 const FOOTER_COLS = [
   { title: "Shop", links: [{ label: "All Creations", href: "/shop" }, { label: "Scene Planters", href: "/shop?category=Scene+Planters" }, { label: "Spiritual", href: "/shop?category=Spiritual" }, { label: "Desk Planters", href: "/shop?category=Desk+Planters" }, { label: "Decor", href: "/shop?category=Decor" }] },
-  { title: "Company", links: [{ label: "Our Story", href: "/about" }, { label: "Personalise", href: "/gifts/personalise" }, { label: "Corporate Gifting", href: "/corporate" }, { label: "Custom Orders", href: "/gifts/personalise" }] },
+  { title: "Company", links: [{ label: "Our Story", href: "/about" }, { label: "Personalise", href: "/gifts/personalise" }, { label: "Corporate Gifting", href: "/corporate" }, { label: "Diwali Gifts", href: "/gifts/diwali" }] },
   { title: "Support", links: [{ label: "Care Guides", href: "/care-guides" }, { label: "Track Order", href: "/track" }, { label: "FAQ", href: "/faq" }, { label: "Contact Us", href: "/contact" }, { label: "Instagram", href: SITE.instagramUrl }] },
 ];
 
