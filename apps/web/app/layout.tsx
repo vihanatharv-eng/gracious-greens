@@ -29,7 +29,10 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env["NEXT_PUBLIC_APP_URL"] ?? "https://graciousgreens.in"),
   title: {
-    default: "Gracious Greens — Gift a Little Life",
+    // Search title leads with what we sell — nobody searches the brand name
+    // yet, and this is the homepage's strongest ranking signal. The brand
+    // tagline still carries the social/OG title below, where voice matters.
+    default: "Personalised Miniature Plant Gifts | Gracious Greens",
     template: "%s | Gracious Greens",
   },
   description:

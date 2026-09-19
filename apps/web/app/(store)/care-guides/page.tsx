@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/legal-page";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Plant Care Guides — Money Plant, ZZ, Snake Plant & More",
+  title: "Plant Care Guides — Money Plant, ZZ & More",
   description:
     "How to care for the live plants in your Gracious Greens miniature scene — watering schedules, light, and simple upkeep for Money Plant, ZZ, Snake Plant, Aglaonema, and Jade.",
   alternates: { canonical: "https://graciousgreens.in/care-guides" },

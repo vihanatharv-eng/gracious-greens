@@ -23,16 +23,28 @@ export function generateStaticParams() {
 // returns a real 404 before any rendering begins.
 export const dynamicParams = false;
 
+// Product names are deliberately evocative ("The Fairy Hollow"), which tells a
+// searcher nothing about what the product is. The title tag is our strongest
+// on-page signal, so it pairs the name with the plain-language thing people
+// actually search for. The displayed name on the page is untouched.
+const CATEGORY_KEYWORD: Record<string, string> = {
+  "Scene Planters": "Miniature Scene Planter",
+  Spiritual: "Spiritual Plant Gift",
+  "Desk Planters": "Desk Plant Gift",
+  Decor: "Home Decor Gift",
+};
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = DEMO_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return { title: "Product not found" };
 
   const url = `${BASE}/shop/${product.slug}`;
+  const keyword = CATEGORY_KEYWORD[product.category] ?? "Plant Gift";
   const description = `${product.tagline}. Handcrafted miniature scene planter. ${product.basePrice ? `₹${product.basePrice}.` : ""} Made to order, shipped across India with fragile-safe packaging.`;
 
   return {
-    title: product.title,
+    title: `${product.title} — ${keyword}`,
     description,
     alternates: { canonical: url },
     openGraph: {
