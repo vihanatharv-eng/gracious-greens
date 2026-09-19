@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { categoryKeyword } from "@/lib/demo-products";
 import type { DemoProduct } from "@/lib/demo-products";
 import { formatPrice, cn } from "@/lib/utils";
 import { useCart } from "@/contexts/cart-context";
@@ -51,7 +52,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
       >
         <Image
           src={product.image}
-          alt={product.title}
+          alt={`${product.title} — handcrafted ${categoryKeyword(product.category).toLowerCase()} by Gracious Greens`}
           fill
           sizes="(max-width: 768px) 50vw, 320px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { DEMO_PRODUCTS } from "@/lib/demo-products";
+import { DEMO_PRODUCTS, categoryKeyword } from "@/lib/demo-products";
 import type { DemoProduct } from "@/lib/demo-products";
 import { formatPrice, cn } from "@/lib/utils";
 import { whatsappLink } from "@/lib/site";
@@ -100,7 +100,7 @@ export function ProductDetail({ product }: { product: DemoProduct }) {
             >
               <Image
                 src={product.images[selectedImageIdx] ?? product.image}
-                alt={`${product.title} — view ${selectedImageIdx + 1} of ${product.images.length}`}
+                alt={`${product.title} — handcrafted ${categoryKeyword(product.category).toLowerCase()}, view ${selectedImageIdx + 1} of ${product.images.length}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -1534,3 +1534,17 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
 ];
 
 export const CATEGORIES = ["All", "Scene Planters", "Spiritual", "Desk Planters", "Decor"];
+
+// Product names are evocative but opaque — "The Fairy Hollow" tells neither a
+// searcher nor a screen-reader user what the thing is. Paired with the name in
+// title tags and image alt text so both describe the actual object.
+const CATEGORY_KEYWORD: Record<string, string> = {
+  "Scene Planters": "Miniature Scene Planter",
+  Spiritual: "Spiritual Plant Gift",
+  "Desk Planters": "Desk Plant Gift",
+  Decor: "Home Decor Gift",
+};
+
+export function categoryKeyword(category: string): string {
+  return CATEGORY_KEYWORD[category] ?? "Plant Gift";
+}
